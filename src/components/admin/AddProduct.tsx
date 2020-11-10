@@ -250,7 +250,7 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
               <CaretDownOutlined style={{marginLeft: '50px'}} />
             </span>
           }>
-          {stars && stars.map((star : any) => {
+          {stars && stars.length > 0 && stars.map((star : any) => {
               return(
               <p className={starSelect === star ? "nameStarSubMenuOn" : 'nameStarSubMenu'} onClick={() => setStarSlect(star)} >{star.name}</p>
               )
