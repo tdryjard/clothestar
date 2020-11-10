@@ -168,7 +168,6 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
                 })
                 if (lastRes){
                     setAddingProduct(!addingProduct)
-                    window.location.reload()
                 }
             }
         }
