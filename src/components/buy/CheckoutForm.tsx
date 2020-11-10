@@ -204,7 +204,7 @@ export const CheckoutForm = ({ panier, price }: any) => {
                         <CardElement options={CARD_OPTIONS} />
                     </div>
                     <p className="textConfirmCGV">En appuyant sur valider vous confirmez avoir pris connaissance de nos <Link to="/conditions-generales-de-vente" className="cgvConfirm">conditions générales de vente</Link> </p>
-                    {!load && <button style={{ marginTop: '15px', maxWidth: '80%' }} onClick={() => { subscription() }} type="submit" className="button">Valider commande {price}</button>}
+                    {!load && <button style={{ marginTop: '15px', maxWidth: '80%' }} onClick={() => { subscription() }} type="submit" className="button">Valider commande {price}€</button>}
                 </div>
                 :
                 <div className="containerBuy" >

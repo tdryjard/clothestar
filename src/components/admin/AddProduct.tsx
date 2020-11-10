@@ -112,6 +112,8 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
         else if(!describeProduct) setError('description manquante')
         else if(!picture) setError('image parincipale du produit manquante')
         else if(!priceProduct) setError('prix du produit manquant')
+        else if(!sizes) setError('il faut ajouter les tailles')
+        else if(!dressSelect) setError('il faut selectionner une tenue pour lier cet article à celle-ci')
         else{
             const resImg = await fetch(`${url}/image/create`, {
                 method: 'POST',
@@ -164,7 +166,10 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
                         sizes : sizes
                     })
                 })
-                if (lastRes) setAddingProduct(!addingProduct)
+                if (lastRes){
+                    setAddingProduct(!addingProduct)
+                    window.location.reload()
+                }
             }
         }
     }

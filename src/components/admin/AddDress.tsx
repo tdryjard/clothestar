@@ -78,7 +78,10 @@ export const AddDress = () => {
                     image_id: resImgJson.id
                 })
             })
-            if (lastRes) setAddingProduct(!addingProduct)
+            if (lastRes){
+                setAddingProduct(!addingProduct)
+                window.location.reload()
+            }
         }
             }
         }

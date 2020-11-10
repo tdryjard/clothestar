@@ -44,7 +44,7 @@ export const AddStar = () => {
 
 
     const createStar = async () => {
-        if(!nameStar) setError('nom du produit manquant')
+        if(!nameStar) setError('nom de la star manquant')
         else if(!picture) setError('image parincipale du produit manquante')
         else{
             const resImg = await fetch(`${url}/image/create`, {
@@ -66,7 +66,10 @@ export const AddStar = () => {
                     image_id: resImgJson.id
                 })
             })
-            if (lastRes) setAddingProduct(!addingProduct)
+            if (lastRes){
+                setAddingProduct(!addingProduct)
+                window.location.reload()
+            }
         }
             }
         }
