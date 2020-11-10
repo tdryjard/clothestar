@@ -37,7 +37,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
         setTimeout(() => {
             const element : any = document.getElementsByClassName('containerProductZoom')
            if(element && Array.isArray(element) && element.length > 0)  element[0].scrollTop = 2000
-        }, 100)
+        }, 300)
 
       }, [sizeSelect])
     
