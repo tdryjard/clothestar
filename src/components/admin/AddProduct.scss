@@ -337,3 +337,19 @@
     height: 20px;
     margin: 5px;
 }
+
+.rowAddProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1200px){
+    .rowAddProduct{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}

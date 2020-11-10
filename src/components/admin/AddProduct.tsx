@@ -190,7 +190,7 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
             <p className="title" style={{ fontSize: '50px', marginTop: '30px', marginBottom: '-50px' }}>Ajouter un nouveau produit</p>
             <div className="containerAddProduct">
         <div className="column">
-            <div className="row">
+            <div className="rowAddProduct">
                 <div style={{ marginRight: '50px', width: '30%', alignItems: 'flex-start' }} className="column">
                     <input maxLength={150} className="input"
                         placeholder="nom du produit"
