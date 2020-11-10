@@ -36,10 +36,10 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
       useEffect(() => {
         setTimeout(() => {
             const element : any = document.getElementsByClassName('containerProductZoom')
-           if(element && Array.isArray(element) && element.length > 0)  element[0].scrollTop = 2000
+           if(element && element.length > 0)  element[0].scrollTop = 2000
         }, 300)
 
-      }, [sizeSelect])
+      }, [sizeSelect, panier])
     
 
     const headRequest: any = {
@@ -249,6 +249,8 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
     window.onresize = function(event : any) {
         setSizeWindow(window.screen.width)
     };
+
+    console.log('ue', window.location.search, encodeURI(productLocation))
 
     console.log(panier && JSON.parse(panier))
     console.log(panier && JSON.parse(panier).panier && JSON.parse(panier).panier.some((article : any) => article.article.id === id))
@@ -473,9 +475,9 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                         <button className="button" onClick={sendNewDescribe}>Valider</button>
                                     </div>}
                             {!editDateDelivery && !newDateDelivery ?
-                                <p style={{ marginTop: '60px', position: 'relative' }} className="text">temps de livraison estimée : {dateDelivery}<img style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDateDelivery(true) }} /></p>
+                                <p style={{ marginTop: '60px', position: 'relative' }} className="text">temps de livraison estimé : 7 à 18 jours<img style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDateDelivery(true) }} /></p>
                                 : !editDateDelivery && newDateDelivery ?
-                                    <p style={{ marginTop: '60px', position: 'relative' }} className="text">temps de livraison estimée : {newDateDelivery}<img style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDateDelivery(true) }} /></p>
+                                    <p style={{ marginTop: '60px', position: 'relative' }} className="text">temps de livraison estimé : 7 à 18 jours<img style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDateDelivery(true) }} /></p>
                                     :
                                     <div className="column">
                                         <input style={{ marginTop: '30px', marginBottom: '10px' }} className="input" placeholder="nouveau temps de livraison" onChange={(e) => { setNewDateDelivery(e.target.value) }} />

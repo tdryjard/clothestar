@@ -5,9 +5,8 @@ import url from '../../api/url'
 
 export const Shop = ({products} : any) => {
     console.log(products)
-    const [name] = useState<string>('Autocentre')
-    const [describe] = useState<any>(`Vous retrouverez ici l'essentiel de nos voitures à vendre, ainsi que des produits automobile de qualité.`)
-    const [sizes, setSizes] = useState([])
+    const [name] = useState<string>('Clothestar')
+    const [describe] = useState<any>(`Retrouvez les tenues de vos stars préférée aux meilleurs prix`)
 
 
     

@@ -88,15 +88,18 @@ export const Panier = ({products} : any) => {
 
     return(
         <div className="containerPanier">
+        <head>
+            <title>Clothestar: panier</title>
+        </head>
         {!validPanier && sizeWindow > 1000 && <Navbar/>}
         {!payment &&
         sizeWindow < 1000 && !validPanier &&
         <div className="containerBuyPanier">
             <p className="titlePricePanier">Total :</p>
             <p className="pricePanier">{totalPrice}€</p>
-            <p className="textPurchasePanier">Temps de livraison estimée : 7 à 14 jours</p>
+            <p className="textPurchasePanier">Temps de livraison estimé : 7 à 18 jours</p>
             <p className="tiret"/>
-            {panier && panier.length > 0 && <button onClick={() => setValidPanier(true)} className="buttonPanier">Valider le panier</button>}
+            {panier && panier.length > 0 && <button onClick={() => setValidPanier(true)} style={{marginLeft: '20px'}} className="buttonPanier">Valider le panier</button>}
         </div>}
         {sizeWindow < 1000 && validPanier &&
             <Buy panier={panier} price={totalPrice}/>}
@@ -153,7 +156,7 @@ export const Panier = ({products} : any) => {
             <div className="containerBuyPanier">
                 <p className="titlePricePanier">Total :</p>
                 <p className="pricePanier">{totalPrice}€</p>
-                <p className="textPurchasePanier">Temps de livraison estimée : 7 à 14 jours</p>
+                <p className="textPurchasePanier">Temps de livraison estimé : 7 à 18 jours</p>
                 <p className="tiret"/>
                 {panier && panier.length > 0 && <button onClick={() => setValidPanier(true)} className="buttonPanier">Valider le panier</button>}
             </div>}

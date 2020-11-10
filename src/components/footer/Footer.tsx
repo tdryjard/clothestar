@@ -19,7 +19,7 @@ export const Footer = () => {
             <div className="rowFooter">
         <p className="titleFooter">CLOTHESTAR</p>
                 <div className="containerLinkFooter">
-                    <Link className={origin === "/conditions-generales-de-vente" ? "linkOnFooter" : "linkFooter"} to="/conditions-generales-de-vente">Conditions générles de vente</Link>
+                    <Link className={origin === "/conditions-generales-de-vente" ? "linkOnFooter" : "linkFooter"} to="/conditions-generales-de-vente">Conditions générales de vente</Link>
                 <div style={{ marginRight: '10px', marginLeft: '10px' }} className="verticalTiret" />
                     <Link className={origin === "/contact" ? "linkOnFooter" : "linkFooter"} to="/contact">CONTACT</Link>
                 </div>

@@ -184,7 +184,7 @@ export const CheckoutForm = ({ panier, price }: any) => {
     return (
         <div className="containerPayment">
             <div className="columnProductBuy">
-                {!pay && <p style={{marginTop: '20px', marginBottom: '20px', fontWeight: "bold"}} className="text">temps de livraison estimé : 7 à 14 jours</p>}
+                {!pay && <p style={{marginTop: '20px', marginBottom: '20px', fontWeight: "bold"}} className="text">temps de livraison estimé : 7 à 18 jours</p>}
             </div>
             {!pay ?
                 <div className="containerBuy">
@@ -195,7 +195,7 @@ export const CheckoutForm = ({ panier, price }: any) => {
                             <input className="inputPricingCard" onChange={getName} placeholder="Nom et prénom" />
                             <input className="inputPricingCard" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAddress(e.target.value) }} placeholder="Adresse" />
                             <input className="inputPricingCard" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCity(e.target.value) }} placeholder="Ville" />
-                            <input className="inputPricingCard" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCodePostal(e.target.value) }} placeholder="Code postale" />
+                            <input className="inputPricingCard" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCodePostal(e.target.value) }} placeholder="Code postal" />
                             <input className="inputPricingCard" onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCountry(e.target.value) }} placeholder="Pays" />
                         </>
                         : <img alt="loading icon" style={{ width: "50%" }} src={require('./image/load.gif')} />}
@@ -203,7 +203,7 @@ export const CheckoutForm = ({ panier, price }: any) => {
                     <div className="inputPricingCard">
                         <CardElement options={CARD_OPTIONS} />
                     </div>
-                    <p className="textConfirmCGV">En appuyant sur valider vous confirmez avoir pris connaissance de nos <Link to="/conditions-generales-de-vente" className="cgvConfirm">conditions générales de vente</Link> </p>
+                    <p className="textConfirmCGV">En appuyant sur valider vous confirmez avoir pris connaissance de nos <Link to="/conditions-generales-de-vente" target="_blank" className="cgvConfirm">conditions générales de vente</Link> </p>
                     {!load && <button style={{ marginTop: '15px', maxWidth: '80%' }} onClick={() => { subscription() }} type="submit" className="button">Valider commande {price}€</button>}
                 </div>
                 :
@@ -211,7 +211,7 @@ export const CheckoutForm = ({ panier, price }: any) => {
                     <p className="title">Merci d'avoir commandé !</p>
                     <ul style={{flexDirection: 'column', marginTop: '30px', marginBottom: '30px', justifyContent: 'flex-start', alignItems: 'flex-start'}} className="text">
                         <li>Prix : {price}€</li>
-                        <li>Temps de livraison estimé : 7 à 14 jours</li>
+                        <li>Temps de livraison estimé : 7 à 18 jours</li>
                         <li>Adresse de livraison : {address}, {city}, {codePostal}, {country}</li>
                     </ul>
                     <p className="text">Vous allez recevoir votre facture par mail très prochainement, encore merci et à bientot !</p>
