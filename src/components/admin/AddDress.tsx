@@ -121,7 +121,7 @@ export const AddDress = () => {
                     <button onClick={createDress} style={{ marginTop: '40px' }} className="button">Créer le dressing</button>
                     <div style={{marginTop: '50px'}} className="containerStars">
                         <p className="centerTitle">Select star</p>
-                        {stars.map((star : any) => {
+                        {stars && stars.length > 0 && stars.map((star : any) => {
                             return(
                                 <div style={starSelect === star ? {backgroundColor: 'rgba(22, 170, 244, 0.459)', color: 'white'} : {}} onClick={() => setStarSelect(star)} className="containerStarAdmin">
                                 <p>{star.name}</p>
