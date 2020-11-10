@@ -1,3 +1,3 @@
-const url = 'http://localhost:8000/api';
+const url = 'https://clothestar.herokuapp.com/api';
 //https://clothestar.herokuapp.com
 export default url;
