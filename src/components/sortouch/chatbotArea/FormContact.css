@@ -1,0 +1,60 @@
+@font-face {
+    font-family: "Sen";
+    src: url("../Sen/Sen-Regular.ttf");
+}
+    
+.containerLittleFormChatbot{
+    margin: 0;
+    height: 100%;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerLittleFormChatbot .inputFormChat{
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid rgb(156, 156, 156);
+    font-size: 15px;
+    font-family: 'Sen', sans-serif;
+    text-align: start;
+    margin-bottom: 30px;
+}
+
+.inputMessageFormChatbot{
+    width: 80%;
+    border-radius: 4px;
+    height: 40%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: inset 0px 0px 5px rgb(160, 160, 160);
+    border: none;
+    font-size: 15px;
+    font-family: 'Sen', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+.containerLittleFormChatbot .sendFormChatbot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(90deg, rgba(53, 179, 252, 0.822) 0%, rgba(8, 117, 251, 0.808) 81%);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Sen', sans-serif;
+    box-shadow: 2px 2px 6px 0px rgb(134, 134, 134);
+    color: #ffffff;
+    cursor: pointer;
+}

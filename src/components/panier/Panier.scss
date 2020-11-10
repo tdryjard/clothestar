@@ -1,0 +1,247 @@
+.containerPanier{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.containerProductsPanier{
+    width: 60%;
+    margin-left: 5%;
+    margin-top: 180px;
+}
+
+.containerProductPanier{
+    width: 90%;
+    height: 250px;
+    border-bottom: 1px solid rgb(165, 165, 165);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.titleProductPanier{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.describeProductPanier{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.imgProductPanier{
+    max-height: 80%;
+    max-width: 80%;
+
+    height: auto;
+    width: auto;
+}
+
+.rightCardProductPanier{
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.containerQuantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerBuyPanier{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30vh;
+    position: fixed;
+    left: 65%;
+}
+
+.tiret{
+    width: 250px;
+    height: 1.5px;
+    background-color: rgb(92, 92, 92);
+}
+
+.titlePricePanier{
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.sizeProductPanier{
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.pricePanier{
+    font-size: 25px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.buttonPanier{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: white;
+    border-radius: 10px;
+    border: var(--second-color) 2px solid;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.textPurchasePanier{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: start;
+}
+
+.columnButtonPanier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rowImgPanier{
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    margin-right: 0px
+}
+
+.columnTextImgPanier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textDeleteArticlePanier{
+    color: rgb(0, 162, 255);
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: end;
+}
+
+@media screen and (max-width: 1000px){
+    .containerPanier{
+        flex-direction: column;
+    }
+
+    .containerBuyPanier{
+        top: 0px;
+        margin-top: 0;
+        background-color: white;
+        left: 0px;
+        width: 100%;
+        height: 230px;
+        padding-bottom: 20px;
+        z-index: 2;
+    }
+
+    .titlePricePanier{
+        margin-left: 20px;
+    }
+    
+    .pricePanier{
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .tiret{
+        height: 1px;
+        width: 80%;
+    }
+
+    .buttonPanier{
+        width: 70%;
+        margin-left: 20px !important;
+    }
+
+    .containerProductsPanier{
+        margin-top: 250px;
+        width: 97%;
+        margin-left: 3%;
+    }
+
+    .containerProductPanier{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .textPurchasePanier{
+        width: 80%;
+        margin-left: 20px;
+        font-size: 4vw;
+    }
+
+    .containerQuantity{
+        flex-direction: column;
+        position: absolute;
+        bottom: 5px;
+    }
+
+    .rightCardProductPanier{
+        position: relative;
+        height: 100%;
+        width: 110px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .columnButtonPanier{
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .rowImgPanier{
+        width: 70% !important;
+        align-items: flex-start;
+    }
+
+    .columnTextImgPanier{
+        align-items: flex-start;
+        margin-left: 15px !important;
+    }
+
+    .titleProductPanier{
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .describeProductPanier{
+        font-size: 14px;
+    }
+
+    .sizeProductPanier{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-size: 15px;
+    }
+}

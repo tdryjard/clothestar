@@ -1,0 +1,40 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": [
+      "error"
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "no-sequences" : "off",
+    "react/prop-types" : "off",
+    "no-param-reassign" : "off",
+    "no-nested-ternary" : "off",
+    "no-underscore-dangle" : "off",
+    "global-require" : "off",
+    "click-events-have-key-events" : "off",
+    "no-static-element-interactions" : "off",
+    "control-has-associated-label" : "off",
+    "tabindex-no-positive" : "off",
+    "interactive-supports-focus" : "off",
+    "array-callback-return" : "off",
+    "exhaustive-deps" : "off",
+    "no-use-before-define" : "off",
+    "consistent-return": "off",
+    "no-inner-declarations" : "off",
+    "no-else-return": "off"
+  }
+}

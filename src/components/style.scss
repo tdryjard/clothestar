@@ -1,0 +1,347 @@
+:root{
+    --first-color: #ffffff;
+    --second-color: #292929;
+    --text-color: rgb(46, 46, 46);
+    --second-text-color: rgb(255, 255, 255);
+}
+
+input::placeholder{
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--first-color);
+    position: relative;
+}
+
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.input{
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+      0 1px 0 #c0c0c0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    height: 30px;
+    width: 200px;
+    padding: 5px 25px 5px 25px;
+}
+
+.text{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.textPrice{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.title{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none !important;
+}
+
+.centerTitle{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.link{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--second-color);
+    text-decoration: none;
+    &:hover{
+        border-bottom: 1px solid rgba(101,77,170,1);
+    }
+    
+    
+    background: linear-gradient(90deg, rgba(101,77,170,1) 25%, rgba(210,86,150,1) 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.linkOn{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--second-color);
+    border-bottom: 1px solid rgba(255,62,182,1);
+    text-decoration: none;
+    
+    background: linear-gradient(90deg, rgba(101,77,170,1) 25%, rgba(210,86,150,1) 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: white;
+    border-radius: 10px;
+    border: var(--second-color) 2px solid;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.buttonPanier{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: white;
+    border-radius: 10px;
+    border: var(--second-color) 2px solid;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonOn{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: var(--first-color) 2px solid;
+    color: var(--text-color);
+    background-color: var(--second-color);
+    color: white;
+}
+
+.button:hover{
+    border: var(--first-color) 2px solid;
+    color: white;
+    background-color: var(--second-color);
+}
+
+.verticalTiret{
+    height: 1px;
+    background-color: white;
+    width: 20px;
+    transform: rotate(90deg);
+}
+
+//BUY
+
+.containerAllBuy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerBuy{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.StripeElement--webkit-autofill {
+    background: transparent !important;
+  }
+  
+  .StripeElement {
+    width: 100%;
+    padding: 11px 15px 11px 0;
+  }
+
+.inputPricingCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    border-style: none;
+    background-color: rgb(255, 255, 255);
+    will-change: opacity, transform;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    height: 50px;
+    width: 70%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    color: rgb(36, 36, 36);
+    font-family: 'Sen', sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
+.buttonLinkTelegram{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 4px 4px 7px rgb(190, 190, 190),
+                -8px -8px 10px rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 20px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.containerTelegram{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 4px 4px 7px rgb(190, 190, 190),
+                -8px -8px 10px rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 20px;
+    width: 80%;
+}
+
+.columnProductBuy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.imgProductBuy{
+    width: 100%;
+    height: auto;
+}
+
+.errorPay{
+    margin-top: 5px;
+    margin-bottom:10px;
+    font-size: 20px;
+    z-index: 25 !important;
+    color: rgb(255, 49, 49) !important;
+    width: 70%;
+    text-align: center;
+}
+
+//BUY
+
+.backPopup{
+    background-color: rgba(0, 0, 0, 0.699);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.containerPopup{
+    width: 250px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.load{
+    margin-top: 350px;
+}
+
+@media screen and (max-width: 1000px){
+    .text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85% !important;
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85% !important;
+        text-align: center;
+    }
+    .containerAddProduct{
+        flex-direction: column;
+        align-items: center;
+        padding : 10% !important;
+    }
+    .containerPriceAdd{
+        margin-left: 0 !important;
+        margin-top: 35px;
+    }
+    .column{
+        width: 100% !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 !important;
+
+    }
+    .upload-btn-wrapper{
+        left: 30%;
+    }
+    .rightCardProductZoom{
+        width: 100%;
+        align-items: center;
+    }
+    .textConfirmCGV{
+        text-align: justify;
+    }
+}

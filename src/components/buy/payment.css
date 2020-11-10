@@ -1,0 +1,40 @@
+.containerElementPayment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    position: absolute;
+}
+
+.containerPayment{
+    background-color: white;
+    box-shadow: 2px 2px 8px rgb(231, 231, 231);
+    width: 700px;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerPayment{
+    width: 90%;
+    padding: 0;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.textConfirmCGV{
+    font-size: 13px;
+    width: 80%;
+    text-align: center;
+}
+
+.cgvConfirm{
+    color: rgb(0, 174, 255);
+}

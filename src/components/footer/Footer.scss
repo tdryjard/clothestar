@@ -1,0 +1,155 @@
+.containerFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+    background-color: var(--second-color);
+    z-index: 10;
+    position: absolute;
+    bottom: -20px;
+    padding-bottom: 5px;
+}
+
+.rowFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+}
+
+.logoFooter{
+    height: 90px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.containerLinkFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.titleFooter{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    left: 50px;
+    position: absolute;
+}
+
+.contentLinkFooter{
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+}
+
+.contentLinkFooter2{
+    width: 20%;
+}
+
+.panierFooter{
+    height: 50px;
+    width: auto;
+    position: relative;
+}
+
+.containerPanierFooter{
+    position: relative;
+    margin-left: -250px;
+    margin-right: 250px
+}
+
+.nbArticlePanierFooter{
+    padding: 2px;
+    color: rgb(24, 24, 24);
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -9px;
+    right: 13px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.linkFooter{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: var(--second-color);
+    text-decoration: none;
+    &:hover{
+        border-bottom: 1px solid var(--second-text-color);
+    }
+    color: var(--second-text-color);
+}
+
+.linkOnFooter{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: var(--second-color);
+    border-bottom: 1px solid var(--second-text-color);
+    text-decoration: none;
+    color: var(--second-text-color);
+}
+
+@media screen and(max-width: 1100px){
+    .containerFooter{
+        height: 50px;
+        padding: 0;
+    }
+    .rowFooter{
+        flex-direction: column;
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .logoFooter{
+        margin-left: 50px !important;
+        margin-right: 20px !important;
+    }
+    .containerLinkFooter{
+    }
+    .titleFooter{
+        display: none;
+    }
+    .containerPanierFooter{
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        margin: 0 !important;
+    }
+    .panierFooter{
+
+        height: 40px;
+        width: auto;
+    }
+    .nbArticlePanierFooter{
+        left: 8px;
+        top: 1px;
+        font-size: 15px;
+    }
+
+    .linkOnFooter{
+        font-size: 3vw;
+    }
+    .linkFooter{
+        font-size: 3vw;
+    }
+}

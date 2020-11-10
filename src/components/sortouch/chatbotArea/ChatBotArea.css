@@ -1,0 +1,407 @@
+@font-face {
+    font-family: "Sen";
+    src: url("../Sen/Sen-Regular.ttf");
+}
+
+.containerIconChat{
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border-radius: 50%;
+    box-shadow: rgb(100, 100, 100) 0px 0px 7px;
+    padding: 7px;
+    background-color: #ffffff;
+    border: none !important;
+}
+
+.iconChat{
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: white;
+}
+
+@media screen and (max-width: 1200px){
+    .iconChat{
+        width: 52px;
+        height: auto;
+    }
+    .containerIconChat{
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+.contentTextIconChat{
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-image: url('./chat_block.png');
+    width: 220px;
+    height: 90px;
+    right: 46%;
+    bottom: 26%;
+    box-shadow: 2px 2px 5pax black;
+}
+
+.questionPrint{
+    margin: 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+.textIconCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    width: 70%;
+    margin: 0;
+    text-align: center;
+    margin-right: 8px;
+    margin-top: 5px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+.textQuest{
+    margin: 0;
+    font-family: 'Sen', sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+
+.containerChatbot{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    width: 320px;
+    position: fixed;
+    bottom: 8%;
+    right: 4%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px #b8b8b8;
+    padding: 5px;
+    background: rgb(216,181,255);
+    background: linear-gradient(0deg, rgb(196, 147, 255) 0%, rgb(207, 164, 255) 100%);
+    z-index: 1000;
+}
+
+.contentChatbot{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 90%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: visible;
+}
+
+.contentIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headChatbot{
+    display: flex !important;
+    justify-content: start !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    position: absolute;
+    width: 90% !important;
+    background-color: rgb(255, 255, 255);
+    height: 35px !important;
+    padding: 5px !important;
+    padding-right: 5% !important;
+    padding-left: 5% !important;
+    margin-top: -5px !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    z-index: 2 !important;
+    box-shadow: 0px 3px 4px rgb(212, 212, 212);
+}
+
+.crossChatbot{
+    height: 18px;
+    width: 18px;
+    background: rgb(255,149,149);
+    background: linear-gradient(90deg, rgba(255,149,149,1) 0%, rgb(235, 74, 74) 81%);
+    padding: 5px;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.reloadChatbot{
+    height: 18px;
+    width: 18px;
+    background: rgb(255,251,149);
+    background: linear-gradient(90deg, rgba(255,251,149,1) 0%, rgb(255, 186, 58) 81%);
+    padding: 5px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sortouch{
+    position: absolute;
+    font-family: 'Lobster', cursive;
+    color: #3f3f3f;
+    font-size: 22px;
+    text-decoration: none;
+    right: 20px;
+    letter-spacing: 1px;
+}
+
+.contentLittleQuestChat{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    width: 65%;
+    border-radius: 10px;
+    padding: 3%;
+    padding-right: 8%;
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 8px rgb(180, 180, 180);
+    position: relative;
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    height: auto;
+    min-height: 40px;
+    text-align: left;
+    color: rgb(46, 46, 46);
+    margin-left: 70px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 10px;
+}
+
+
+.logoChat{
+    width: 50px;
+    padding: 5px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: -70px;
+    box-shadow: rgb(100, 100, 100) 0px 0px 5px;
+}
+
+.borderChatSortouch:after{
+    position: absolute;
+    left: -20px;
+    width: 20px;
+    height: 15px;
+    border-bottom-left-radius: -10px;
+    content: ' ';
+}
+
+.contentResponseChat{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 95%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.containerCardResponse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(53, 179, 252);
+    background: linear-gradient(90deg, rgba(53,179,252,1) 0%, rgba(8,116,251,1) 81%);
+    box-shadow: -4px -3px 1px 0px #ffffff, 1px 1px 9px 0px rgb(175, 175, 175);
+    margin: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 10px 20px 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    max-width: 80%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 20px;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.contentResponseChat{
+    width: 92%;
+    margin-left: 0;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.textCardResChat{
+    font-size: 17px;
+    font-family: 'Sen', sans-serif;
+    margin: 0;
+}
+
+.contentLittleDestinationChat{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerTextePosted{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.textPosted{
+    font-size: 25px;
+    color: white;
+    font-family: 'Sen', sans-serif;
+}
+
+.loadSortouchPluging{
+    height: 200px;
+    width: auto;
+    margin-bottom: 130px;
+    border-radius: 50%;
+}
+
+.divRelativeSortouch{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.contentQuestChat{
+    width: 90%;
+    height: 90%;
+}
+
+.containerChargementSortouch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.pointChargementSortouch{
+    background: linear-gradient(90deg, rgba(53, 179, 252, 0.822) 0%, rgba(8, 117, 251, 0.808) 81%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation: jumpSortouch 1s infinite;
+} @keyframes jumpSortouch{
+    0%{
+        margin-bottom: 0;
+    }
+    100%{
+        margin-bottom: 20px;
+    }
+}
+
+.pointChargementSortouch2{
+    background: linear-gradient(90deg, rgba(53, 179, 252, 0.822) 0%, rgba(8, 117, 251, 0.808) 81%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation: jumpSortouch2 1s infinite;
+} @keyframes jumpSortouch2{
+    0%{
+        margin-bottom: 0;
+    }
+    100%{
+        margin-bottom: 25px;
+    }
+}
+
+.pointChargementSortouch3{
+    background: linear-gradient(90deg, rgba(53, 179, 252, 0.822) 0%, rgba(8, 117, 251, 0.808) 81%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation: jumpSortouch3 1s infinite;
+} @keyframes jumpSortouch3{
+    0%{
+        margin-bottom: 0;
+    }
+    100%{
+        margin-bottom: 30px;
+    }
+}
+
+.backIconSortouch{
+    height: 18px;
+    width: auto;
+    padding: 5px;
+    background: rgb(53, 179, 252);
+    background: linear-gradient(90deg, rgba(53,179,252,1) 0%, rgba(8,116,251,1) 81%);
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px){
+
+}
+
+.inputSearchSortouch{
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 40px;
+    border: none;
+    background-image: url('./search.png');
+    background-position: left;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Sen', sans-serif;
+    position: absolute;
+    bottom: 30px;
+    box-shadow: 1px 1px 5px rgb(170, 170, 170);;
+}

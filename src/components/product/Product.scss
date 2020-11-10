@@ -1,0 +1,374 @@
+.containerProducts{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.cardProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2px;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
+    margin-top: 50px;
+    border: 1px solid rgb(216,219,216);
+    position: relative;
+    cursor: pointer;
+    &:hover{
+        animation: hoverShadow 0.5s;
+        box-shadow: 0px 2px 5px rgb(216, 216, 216);
+    }
+}
+
+@keyframes hoverShadow{
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 0px 2px 5px rgb(216, 216, 216);
+    }
+}
+
+.leftCardProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+}
+
+.containerTitleProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.containerImgProduct{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imgProduct{
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.rightCardProduct{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    padding: 20px 5% 20px 5%;
+}
+
+.containerPriceProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.containerPromoPrice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    margin-right: 40px;
+}
+
+.tiretPromo{
+    position: absolute;
+    top: 15px;
+    height: 1px;
+    width: 50px;
+    background-color: rgb(37, 37, 37);
+}
+
+.containerPrice{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+// ZOOM
+
+.containerProductZoom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    background-color: rgb(241, 241, 241);
+    background-image: url('../images/back_gradient.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contentProductZoom{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: white;
+    overflow: hidden;
+    width: 1000px;
+    height: 600px;
+    padding: 5%;
+    box-shadow: 2px 2px 5px rgb(134, 134, 134);
+}
+
+.leftCardProductZoom{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    width: 60%;
+    height: 100%;
+}
+
+.containerLittleImgProduct{
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.imgProductZoom1{
+    width: 70%;
+    height: auto;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+.imgProductZoom2{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.imgProductZoom3{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.rightCardProductZoom{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+.logoCard{
+    position: absolute;
+    background-color: rgb(26, 26, 26);
+    border-radius: 10px;
+    top: 20px;
+    left: 20px;
+    padding: 7px;
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(48, 48, 48);
+    }
+}
+
+.containerPopup{
+    width: 350px;
+    height: 250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgb(134, 134, 134);
+}
+
+.buttonImgUpdate{
+    background-image: url('../images/edit.png');
+    background-size: cover;
+    background-color: rgb(26, 26, 26);
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
+.editLogo{
+    position: absolute;
+    right: -90px;
+    top: -10px;
+    background-color: rgb(26, 26, 26);
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border: none;
+
+}
+
+.containerPrice{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.containerSizeProduct{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.boxSize{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: white;
+    border-radius: 2px;
+    border: var(--second-color) 1.5px solid;
+    height: 35px;
+    width: 55px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.boxSizeSelect{
+    box-shadow: 2px 6px 9px rgba(50, 50, 93, 0.06), 1px 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Sen', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--second-color);
+    border-radius: 2px;
+    border: var(--second-color) 1.5px solid;
+    height: 35px;
+    width: 55px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+@media screen and (max-width: 1000px){
+    .containerProductZoom{
+        height: auto;
+        min-height: 100vh;
+        position: fixed;
+        overflow: scroll;
+    }
+    .contentProductZoom{
+        width: 90%;
+        height: auto;
+        padding: 5%;
+        padding-top: 30vh;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+    }
+    .buttonPanier{
+        margin-left: 0 !important;
+    }
+    .leftCardProductZoom{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    .containerLittleImgProduct{
+        flex-direction: row;
+        width: 90%;
+        margin-top: 30px;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+    .imgProductZoom1{
+        margin: 0;
+    }
+    .imgProductZoom2{
+        margin: 0;
+        margin-right: 20px;
+        width: 35%;
+        border: 1px solid rgb(202, 202, 202);
+        border-radius: 3px;
+    }
+    .imgProductZoom3{
+        margin: 0;
+        width: 35%;
+        border: 1px solid rgb(202, 202, 202);
+        border-radius: 3px;
+    }
+    .containerPrice{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .containerAllBuy{
+        flex-direction: column !important;
+    }
+    .columnProductBuy{
+        width: 100% !important;
+    }
+    .containerBuy{
+        width: 100% !important;
+        margin-top: 50px;
+    }
+    .containerLittleImg{
+        width: 35%;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    .editLogo{
+        right: 0;
+        top: -10px;
+    }
+}

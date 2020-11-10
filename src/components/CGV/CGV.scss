@@ -1,0 +1,15 @@
+.containerArticleCG{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px){
+    .containerArticleCG{
+        width: 90%;
+    }
+}
