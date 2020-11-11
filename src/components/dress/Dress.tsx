@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import './Dress.scss'
 
 export const Dress = ({ dress }: any) => {
-    console.log(dress)
     const [dressLocation] = useState(`?tenue${dress.id}`)
 
     return (
@@ -39,7 +38,7 @@ export const Dress = ({ dress }: any) => {
                                         <Link className="cardProductDress" style={{ textDecoration: 'none' }} to={`/boutique?${product.title}`}>
                                     <img  className="imgProductDress" alt="new picture product" src={product.base1} />
                                     <div className="bottomCardProductDress">
-                                            <p style={{ marginBottom: '0px', width: '90%' }} className="text">{product.title}</p>
+                                            <p style={{ marginBottom: '0px', width: '90%', justifyContent: 'flex-start', alignItems: 'flex-start' }} className="text">{product.title}</p>
                                     </div>
                                     </Link>
                                     )

@@ -54,7 +54,6 @@ export const AddDress = () => {
 
 
     const createDress = async () => {
-        console.log(starSelect)
         if(!nameDress) setError('nom du dressing manquant')
         else if(!picture) setError('image parincipale du dressing manquante')
         else if(!(starSelect && starSelect.id)) setError('Selectionner une star')
@@ -85,8 +84,6 @@ export const AddDress = () => {
         }
             }
         }
-
-        console.log(starSelect)
 
 
 

@@ -65,7 +65,6 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
     }
     }, [])
 
-    console.log(panierArray)
 
     const deleteProductFC = async () => {
         const res = await fetch(`${url}/product/delete/${id}`, {
@@ -243,17 +242,11 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
         setProductAdd(stockProductAdd)
     }
 
-    console.log(productAdd)
 
 
     window.onresize = function(event : any) {
         setSizeWindow(window.screen.width)
     };
-
-    console.log('ue', window.location.search, encodeURI(productLocation))
-
-    console.log(panier && JSON.parse(panier))
-    console.log(panier && JSON.parse(panier).panier && JSON.parse(panier).panier.some((article : any) => article.article.id === id))
 
     return (
         <>

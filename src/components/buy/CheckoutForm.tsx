@@ -68,7 +68,6 @@ export const CheckoutForm = ({ panier, price }: any) => {
             const Name: string = name;
             let panierString = ""
             panier.map((product : any) => {
-                console.log(product)
                 panierString += `(id: ${product.id} nb: ${product.nb} size: ${product.size}) `
             })
             const resCustomer = await fetch(`${url}/create-customer`, {
@@ -86,20 +85,17 @@ export const CheckoutForm = ({ panier, price }: any) => {
                 })
             })
             const resCustomJson = await resCustomer.json()
-            console.log(resCustomJson)
             if (resCustomJson) {
                 let price : any = 0
                     fetch(`${url}/product/find`)
                     .then(res => res.json())
                     .then(res => {
-                        console.log(panier)
                         for(let i = 0; i < panier.length; i++){
                             for(let x = 0; x < res.length; x++){
                                 if(res[x].id === panier[i].id) price += (panier[i].nb*res[x].price)
                             }
                             
                         }
-                        console.log(price)
                         if(price){
                         fetch(`${url}/secret`, {
                             method: 'post',
@@ -113,7 +109,6 @@ export const CheckoutForm = ({ panier, price }: any) => {
                         })
                         .then(res => res.json())
                         .then(res => {
-                            console.log(res)
                             if (res) {
                                 const clientSecret = res.client_secret;
                                 paymenthod(clientSecret, name, Email, address, codePostal, country, city)
@@ -153,7 +148,6 @@ export const CheckoutForm = ({ panier, price }: any) => {
                 },
             }
         });
-        console.log(result.error)
         if (result.error) {
             setError('Un problème avec votre paiement est survenu, veuillez réessayer')
             setLoad(false)

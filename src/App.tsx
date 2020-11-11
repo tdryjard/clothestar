@@ -30,14 +30,14 @@ export function App() {
   useEffect(() => {
 
   }, [products])
-
-  console.log(products)
   
   return (
     <>
     {products &&
     <Switch>
-      <Route exact path="/" component={Landing} />
+    <Route products={products} exact path="/" render={(props : any) => {
+      return (<Landing {...props} products={products}/>)
+    }} />
       <Route path="/admin" component={Admin} />
       <Route path="/stars" component={StarPlace} />
       <Route products={products} path="/boutique" render={(props : any) => {

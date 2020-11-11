@@ -7,7 +7,7 @@ import {Dress} from '../../dress/Dress'
 import {Footer} from '../../footer/Footer'
 import './Landing.scss'
 
-export const Landing = () => {
+export const Landing = ({products} : any) => {
     const [starSearch, setStarSearch] = useState<any>(window.location.search.split('?'))
     const [stars, setStars] = useState([])
     const [name] = useState<string>('Clothestar')
@@ -24,31 +24,20 @@ export const Landing = () => {
     useEffect(() => {
         getDress()
         getStars()
-    }, [])
+    }, [products])
 
     const getDress = async () => {
         let newDress : any = []
         const resDress = await fetch(`${url}/dress/find`)
         const resDressJson = await resDress.json()
             if(resDressJson){
-                    for(let i = 0; i < resDressJson.length; i++ ){
-                        const resProduct = await fetch(`${url}/dress/find/products`, {
-                            method: 'POST',
-                            credentials: 'include',
-                            headers: headRequest,
-                            body: JSON.stringify({
-                                dress: resDressJson[i]
-                            })
-                        })
-                        if(resProduct){
-                            const resProductJson = await resProduct.json()
-                            newDress = [...newDress, resProductJson]
-                        }
-
-                    }
+                resDressJson.map((dress : any, index : any) => {
+                    products.map((product : any) => {
+                        if(product.dress_id === dress.id && newDress[index]) newDress[index] = {...resDressJson[index], product : [...newDress[index].product, product]};
+                        else if(product.dress_id === dress.id && !newDress[index]) newDress[index] = {...resDressJson[index], product : [product]};
+                    })
+                })
                 
-                console.log('dalu')
-                console.log(newDress)
                 newDress.sort(function(a : any, b : any){
                     if(a.name < b.name) { return -1; }
                     if(a.name > b.name) { return 1; }
@@ -66,7 +55,6 @@ export const Landing = () => {
 
     }
 
-    console.log(stars)
 
     return (
         <div className="container">

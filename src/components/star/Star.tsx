@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import './Star.scss'
 
 export const Star = ({ star }: any) => {
-    console.log(star)
 
     return (
         <>

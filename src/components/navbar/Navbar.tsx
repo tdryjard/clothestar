@@ -11,8 +11,6 @@ export const Navbar = () => {
         setOrigin(loc)
     }, [])
 
-    console.log(panier && JSON.parse(panier))
-
     return (
         <div className="containerNavbar">
             <div className="rowNavbar">

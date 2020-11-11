@@ -67,8 +67,6 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
         }
     }
 
-    console.log(sizes)
-
     const getFile = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const file: any = e.target.files[0];
@@ -97,13 +95,11 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
     }
 
     useEffect(() => {
-        console.log(sizes)
     }, [sizes])
 
 
 
     const createProduct = async () => {
-        console.log(dressSelect)
         let resImgJson2
         let resImgJson3
         let imgId2 = ''
@@ -172,8 +168,6 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
             }
         }
     }
-
-    console.log(starSelect, dress)
 
 
 

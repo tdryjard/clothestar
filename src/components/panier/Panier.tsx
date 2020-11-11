@@ -7,7 +7,6 @@ import './Panier.scss'
 
 
 export const Panier = ({products} : any) => {
-    console.log(products)
     const [panier, setPanier] = useState<any>([])
     const [totalPrice, setTotalPrice] = useState<any>(0)
     const [sizeWindow, setSizeWindow] = useState<any>(window.screen.width)
@@ -17,30 +16,23 @@ export const Panier = ({products} : any) => {
     useEffect(() => {
         if(localStorage.getItem('panier') && products.length > 0){
         let panier : any = localStorage.getItem('panier')
-        console.log(panier)
         panier = JSON.parse(panier).panier
-        console.log(products)
         let newPanier : any = []
         if(panier && panier.length > 0){
         products.map((product : any) => {
             panier.map((article : any, index : number) => {
-                console.log(product, article)
                 if(product.id === article.article.id) newPanier.push({...article.article, ...product, nb : 1})
             })
 
         })
     }
-        console.log(newPanier)
         setPanier(newPanier)
     }
     }, [products])
 
-    console.log(panier)
-
     useEffect(() => {
         let price : any = 0
         panier.map((product: any) => {
-            console.log(product.price)
             price += (product.price*product.nb)
         })
         setTotalPrice(parseFloat(price).toFixed(2))
@@ -58,22 +50,17 @@ export const Panier = ({products} : any) => {
         setSizeWindow(window.screen.width)
     };
 
-    console.log(sizeWindow)
 
     const deleteArticle = (index: any) => {
         
         if(localStorage.getItem('panier') && products.length > 0){
             let panierStorage : any = localStorage.getItem('panier')
-            console.log(panier)
             panierStorage = JSON.parse(panierStorage).panier.slice()
-            console.log(panierStorage)
             panierStorage.splice(index, 1)
-            console.log(panierStorage)
             localStorage.setItem('panier', JSON.stringify({panier : panierStorage}))
             let newPanier : any = []
             products.map((product : any) => {
                 panierStorage.map((article : any, index : number) => {
-                    console.log(product, article)
                     if(product.id === article.article.id) newPanier.push({...article.article, ...product, nb : 1})
                 })
 
