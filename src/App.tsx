@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import { Landing } from './components/template1/landing/Landing'
 import { Admin } from './components/admin/Admin'
@@ -17,6 +18,7 @@ export function App() {
   
   useEffect(() => {
     GetProducts()
+    initializeReactGA()
   }, [])
   
   const GetProducts = async () => {
@@ -25,6 +27,17 @@ export function App() {
         const resJson = await res.json()
         if (resJson) setProducts(resJson)
     }
+  }
+
+  function initializeReactGA() {
+    ReactGA.initialize('252484401');
+    ReactGA.pageview('/');
+    ReactGA.pageview('/boutique');
+    ReactGA.pageview('/panier');
+    ReactGA.pageview('/contact');
+    ReactGA.pageview('/conditions générales de vente');
+    ReactGA.pageview('/stars');
+    ReactGA.pageview('/admin');
   }
 
   useEffect(() => {
