@@ -459,7 +459,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                     <button className="button" onClick={sendNewPrice}>Valider</button>
                                 </div>}
                             {!editDescribe && !newDescribe ?
-                                <p style={{ marginTop: '60px', position: 'relative' }} className="text">{description}<img style={{zIndex: '50', marginRight: '110px', top: '0px'}} style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDescribe(true) }} /></p>
+                                <p style={{ marginTop: '60px', position: 'relative' }} className="text">{description}<img style={{marginRight: '110px', top: '0px'}} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDescribe(true) }} /></p>
                                 : !editDescribe && newDescribe ?
                                     <p style={{ marginTop: '60px', position: 'relative' }} className="text">{newDescribe}<img style={{ marginRight: '15px' }} src={require('../images/edit.png')} className="editLogo" onClick={(e) => { setEditDescribe(true) }} /></p>
                                     :
