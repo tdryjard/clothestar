@@ -7,7 +7,7 @@ import {Navbar} from '../navbar/Navbar'
 
 export const Buy = ({ panier, price }: any) => {
 
-    const stripePromise = loadStripe("pk_test_AGb35S7bWUgRgRUh3tsxgfrL00MDuBTKPS");
+    const stripePromise = loadStripe("pk_live_u4e03SLJFJMC8k4Bv7g1T3Py00rrpMeJLo");
 
     return (
         <div className="containerElementPayment">

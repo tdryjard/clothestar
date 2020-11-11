@@ -42,7 +42,6 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 400px;
 }
 
 .containerTitleProduct{
@@ -254,6 +253,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .boxSize{
@@ -311,7 +311,7 @@
         width: 90%;
         height: auto;
         padding: 5%;
-        padding-top: 30vh;
+        padding-top: 60vh;
         min-height: 100vh;
         flex-direction: column;
         align-items: flex-start;
