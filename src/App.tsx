@@ -30,7 +30,7 @@ export function App() {
   }
 
   function initializeReactGA() {
-    ReactGA.initialize('G-N7YYKQ7574');
+    ReactGA.initialize('UA-144328716-1');
     ReactGA.pageview('/');
     ReactGA.pageview('/boutique');
     ReactGA.pageview('/panier');
