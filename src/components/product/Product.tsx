@@ -4,6 +4,7 @@ import { Buy } from '../buy/Buy'
 import url from '../../api/url'
 import { Link } from 'react-router-dom'
 import { CheckOutlined } from '@ant-design/icons'
+import {Navbar} from '../navbar/Navbar'
 import './Product.scss'
 
 export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title, base1, base2, base3, description, price, pricePromo, priceId, tokenProps, verifToken, sizes }: PropsShop) => {
@@ -250,6 +251,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
 
     return (
         <>
+        {!(tokenProps && verifToken) && <Navbar/>}
             {window.location.search !== encodeURI(productLocation) && !deleted && !editProduct && !deleteProduct ?
                 <div className="cardProduct">
                     {tokenProps && verifToken &&

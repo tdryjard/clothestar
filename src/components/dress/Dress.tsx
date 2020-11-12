@@ -24,7 +24,7 @@ export const Dress = ({ dress }: any) => {
                 </div>
                 : window.location.search === dressLocation &&
                 <div className="containerProductZoom">
-                        <div className="contentProductZoom">
+                        <div className="contentProductZoomDress">
                                 <div className="leftCardProductZoom">
                                 <img className="imgProduct" alt="new picture product" src={dress.base1} />
                                 </div>
