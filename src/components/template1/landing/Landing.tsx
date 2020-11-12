@@ -22,8 +22,10 @@ export const Landing = ({products} : any) => {
     }
 
     useEffect(() => {
+        if(products && products.length > 0){
         getDress()
         getStars()
+        }
     }, [products])
 
     const getDress = async () => {
