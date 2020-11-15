@@ -99,10 +99,10 @@ export const Panier = ({products} : any) => {
                             {sizeWindow < 1000 ?
                             <div style={{height: '100%', justifyContent: 'start', width: '50%', marginRight: '0px'}} className="column">
                                 <p className="titleProductPanier" >{product.title}</p>
-                                <img className="imgProductPanier" src={product.base1}/>
+                                <img className="imgProductPanier" src={require(`../images${product.base1}`)}/>
                             </div>
                             :
-                            <img className="imgProductPanier" src={product.base1}/>}
+                            <img className="imgProductPanier" src={require(`../images${product.base1}`)}/>}
                             {sizeWindow > 1000 &&
                             <div style={{alignItems: 'flex-start', marginLeft: '50px'}} className="columnTextImgPanier">
                                 <p className="titleProductPanier" >{product.title}</p>

@@ -261,7 +261,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                     <Link style={{ textDecoration: 'none' }} to={`/boutique?${title}`}>
                         <div className="leftCardProduct">
                             <div className="containerImgProduct">
-                                <img className="imgProduct" alt="new picture product" src={base1} />
+                                <img className="imgProduct" alt="new picture product" src={require(`../images${base1}`)} />
                             </div>
                         </div>
                         <div className="rightCardProduct">
@@ -287,20 +287,20 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                 <div className="leftCardProductZoom">
                                     <div className="containerLittleImgProduct">
                                         {base2 &&
-                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(2) : imgSelect === 2 ? setImgSelect(3) : setImgSelect(1) }} className="imgProductZoom2" alt="new picture product" src={imgSelect === 1 ? base2 : imgSelect === 2 ? base3 : base1} />}
+                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(2) : imgSelect === 2 ? setImgSelect(3) : setImgSelect(1) }} className="imgProductZoom2" alt="new picture product" src={imgSelect === 1 ? require(`../images${base2}`) : imgSelect === 2 ? require(`../images${base3}`) : require(`../images${base1}`)} />}
                                         {base3 &&
-                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(3) : imgSelect === 2 ? setImgSelect(1) : setImgSelect(2) }} className="imgProductZoom3" alt="new picture product" src={imgSelect === 1 ? base3 : imgSelect === 2 ? base1 : base2} />}
+                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(3) : imgSelect === 2 ? setImgSelect(1) : setImgSelect(2) }} className="imgProductZoom3" alt="new picture product" src={imgSelect === 1 ? require(`../images${base3}`) : imgSelect === 2 ? require(`../images${base1}`) : require(`../images${base2}`)} />}
                                     </div>
-                                    <img className="imgProductZoom1" alt="new picture product" src={imgSelect === 1 ? base1 : imgSelect === 2 ? base2 : base3} />
+                                    <img className="imgProductZoom1" alt="new picture product" src={imgSelect === 1 ? require(`../images${base1}`) : imgSelect === 2 ? require(`../images${base2}`) : require(`../images${base3}`)}/>
                                 </div>
                                 :
                                 <div className="leftCardProductZoom">
-                                    <img className="imgProductZoom1" alt="new picture product" src={imgSelect === 1 ? base1 : imgSelect === 2 ? base2 : base3} />
+                                    <img className="imgProductZoom1" alt="new picture product" src={imgSelect === 1 ? require(`../images${base1}`) : imgSelect === 2 ? require(`../images${base2}`) : require(`../images${base3}`)} />
                                     <div className="containerLittleImgProduct">
                                         {base2 &&
-                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(2) : imgSelect === 2 ? setImgSelect(3) : setImgSelect(1) }} className="imgProductZoom2" alt="new picture product" src={imgSelect === 1 ? base2 : imgSelect === 2 ? base3 : base1} />}
+                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(2) : imgSelect === 2 ? setImgSelect(3) : setImgSelect(1) }} className="imgProductZoom2" alt="new picture product" src={imgSelect === 1 ? require(`../images${base2}`) : imgSelect === 2 ? require(`../images${base3}`) : require(`../images${base1}`)} />}
                                         {base3 &&
-                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(3) : imgSelect === 2 ? setImgSelect(1) : setImgSelect(2) }} className="imgProductZoom3" alt="new picture product" src={imgSelect === 1 ? base3 : imgSelect === 2 ? base1 : base2} />}
+                                            <img onClick={() => { imgSelect === 1 ? setImgSelect(3) : imgSelect === 2 ? setImgSelect(1) : setImgSelect(2) }} className="imgProductZoom3" alt="new picture product" src={imgSelect === 1 ? require(`../images${base3}`) : imgSelect === 2 ? require(`../images${base1}`) : require(`../images${base2}`)} />}
                                     </div>
                                 </div>}
                             <div className="rightCardProductZoom">
@@ -357,7 +357,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                         onChange={(e) => { getFile(imageId2, e) }} />
                                                 </div>
                                             </div>
-                                            <img className="imgProductZoom2" alt="new picture product" src={imgBase2} />
+                                            <img className="imgProductZoom2" alt="new picture product" src={require(`../images${imgBase2}`)} />
                                         </div>}
                                     {base3 &&
                                         <div style={{ position: 'relative' }} className="containerLittleImg" >
@@ -370,7 +370,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                         onChange={(e) => { getFile(imageId3, e) }} />
                                                 </div>
                                             </div>
-                                            <img className="imgProductZoom3" alt="new picture product" src={imgBase3} />
+                                            <img className="imgProductZoom3" alt="new picture product" src={require(`../images${imgBase3}`)} />
                                         </div>}
                                 </div>
                                 <div style={{ position: 'relative' }} className="containerLittleImg" >
@@ -383,7 +383,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                 onChange={(e) => { getFile(imageId1, e) }} />
                                         </div>
                                     </div>
-                                    <img className="imgProductZoom1" alt="new picture product" src={imgBase1} />
+                                    <img className="imgProductZoom1" alt="new picture product" src={require(`../images${imgBase1}`)} />
                                 </div>
                             </div>
                             :
@@ -398,7 +398,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                 onChange={(e) => { getFile(imageId1, e) }} />
                                         </div>
                                     </div>
-                                    <img className="imgProductZoom1" alt="new picture product" src={imgBase1} />
+                                    <img className="imgProductZoom1" alt="new picture product" src={require(`../images${imgBase1}`)} />
                                 </div>
                                 <div className="containerLittleImgProduct">
                                     {base2 &&
@@ -412,7 +412,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                         onChange={(e) => { getFile(imageId2, e) }} />
                                                 </div>
                                             </div>
-                                            <img style={{ width: '100%' }} className="imgProductZoom2" alt="new picture product" src={imgBase2} />
+                                            <img style={{ width: '100%' }} className="imgProductZoom2" alt="new picture product" src={require(`../images${imgBase2}`)} />
                                         </div>}
                                     {base3 &&
                                         <div style={{ position: 'relative' }} className="containerLittleImg" >
@@ -425,7 +425,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                                         onChange={(e) => { getFile(imageId3, e) }} />
                                                 </div>
                                             </div>
-                                            <img style={{ width: '100%' }} className="imgProductZoom3" alt="new picture product" src={imgBase3} />
+                                            <img style={{ width: '100%' }} className="imgProductZoom3" alt="new picture product" src={require(`../images${imgBase3}`)} />
                                         </div>}
                                 </div>
                             </div>}

@@ -188,48 +188,13 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
                     <input maxLength={150} className="input"
                         placeholder="nom du produit"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setNameProduct(e.target.value) }} />
-                    {!picture ?
                         <div className="containerInputFile">
-                            <div className="upload-btn-wrapper">
-                                <button className="buttonImg">Image <img style={{ marginTop: '10px' }} alt="cross icon" src={require("../images/cross.png")} /> </button>
-                                <input className="inputGetFile" accept=".jpeg,.jpg,.png"
-                                    type="file"
-                                    name="file"
-                                    onChange={getFile} />
-                            </div>
+                            <input placeholder="path picture 1" className="input" onChange={(e) => setPicture(e.target.value)}/>
                         </div>
-                        :
-                        <div className="containerImgAddProduct">
-                            <img className="imgAddProduct" alt="new picture product" src={picture} />
-                        </div>}
-                    {picture && !picture2 ?
-                        <div className="containerInputFile">
-                            <div className="upload-btn-wrapper">
-                                <button className="buttonImg">Image <img style={{ marginTop: '10px' }} alt="cross icon" src={require("../images/cross.png")} /> </button>
-                                <input className="inputGetFile" accept=".jpeg,.jpg,.png"
-                                    type="file"
-                                    name="file"
-                                    onChange={getFile} />
-                            </div>
-                        </div>
-                        : picture && picture2 &&
-                        <div className="containerImgAddProduct">
-                            <img className="imgAddProduct" alt="new picture product" src={picture2} />
-                        </div>}
-                    {picture2 && !picture3 ?
-                        <div className="containerInputFile">
-                            <div className="upload-btn-wrapper">
-                                <button className="buttonImg">Image <img style={{ marginTop: '10px' }} alt="cross icon" src={require("../images/cross.png")} /> </button>
-                                <input className="inputGetFile" accept=".jpeg,.jpg,.png"
-                                    type="file"
-                                    name="file"
-                                    onChange={getFile} />
-                            </div>
-                        </div>
-                        : picture2 && picture3 &&
-                        <div className="containerImgAddProduct">
-                            <img className="imgAddProduct" alt="new picture product" src={picture3} />
-                        </div>}
+                    {picture &&
+                            <input style={{marginTop: '15px'}} placeholder="path picture 2" className="input" onChange={(e) => setPicture2(e.target.value)}/>}
+                    {picture2 &&
+                            <input style={{marginTop: '15px'}} placeholder="path picture 3" className="input" onChange={(e) => setPicture3(e.target.value)}/>}
 
            
                 </div>
@@ -264,7 +229,7 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
           {dress.map((dress : any) => {
               return(
                   dress.star_id === starSelect.id &&
-                  <img onClick={() => setDressSelect(dress)} className={dressSelect === dress ? "imgSubMenuAdminOn" : "imgSubMenuAdmin"} src={dress.base1}/>
+                  <img onClick={() => setDressSelect(dress)} className={dressSelect === dress ? "imgSubMenuAdminOn" : "imgSubMenuAdmin"} src={require(`../images${dress.base1}`)}/>
               )
           })}
           </SubMenu>}

@@ -102,20 +102,7 @@ export const AddDress = () => {
                     <input maxLength={150} className="input"
                         placeholder="nom du dressing"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setNameDress(e.target.value) }} />
-                    {!picture ?
-                        <div className="containerInputFile">
-                            <div className="upload-btn-wrapper">
-                                <button className="buttonImg">Image <img style={{ marginTop: '10px' }} alt="cross icon" src={require("../images/cross.png")} /> </button>
-                                <input className="inputGetFile" accept=".jpeg,.jpg,.png"
-                                    type="file"
-                                    name="file"
-                                    onChange={getFile} />
-                            </div>
-                        </div>
-                        :
-                        <div className="containerImgAddProduct">
-                            <img className="imgAddProduct" alt="new picture product" src={picture} />
-                        </div>}
+                    {<input style={{marginTop: '15px'}} placeholder="path" className="input" onChange={(e) => setPicture(e.target.value)}/> }
                 </div>
                 <div className="column">
                     <button onClick={createDress} style={{ marginTop: '40px' }} className="button">Créer le dressing</button>
