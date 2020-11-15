@@ -82,7 +82,7 @@ export const Landing = ({products} : any) => {
                         <div className="cardProduct">
                         <div className="leftCardProduct">
                             <div className="containerImgProduct">
-                                <img className="imgProduct" alt="new picture product" src={star.base1} />
+                                <img className="imgProduct" alt="new picture product" src={require(`../../images${star.base1}`)} />
                             </div>
                         </div>
                         <div className="rightCardProduct">
