@@ -91,20 +91,11 @@ export const AddStar = () => {
                     <input maxLength={150} className="input"
                         placeholder="nom de la star"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setNameStar(e.target.value) }} />
-                    {!picture ?
-                        <div className="containerInputFile">
-                            <div className="upload-btn-wrapper">
-                                <button className="buttonImg">Image <img style={{ marginTop: '10px' }} alt="cross icon" src={require("../images/cross.png")} /> </button>
-                                <input className="inputGetFile" accept=".jpeg,.jpg,.png"
-                                    type="file"
-                                    name="file"
-                                    onChange={getFile} />
-                            </div>
-                        </div>
-                        :
-                        <div className="containerImgAddProduct">
-                            <img className="imgAddProduct" alt="new picture product" src={picture} />
-                        </div>}
+                    
+                    <input maxLength={150} className="input"
+                        placeholder="path"
+                        style={{marginTop: '15px'}}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPicture(e.target.value) }} />
                 </div>
                     <button onClick={createStar} style={{ marginTop: '40px' }} className="button">Ajouter la star</button>
 
