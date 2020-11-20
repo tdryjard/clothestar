@@ -38,7 +38,7 @@ export const Dress = ({ dress }: any) => {
                                         <Link className="cardProductDress" style={{ textDecoration: 'none' }} to={`/boutique?${product.title}`}>
                                     <img  className="imgProductDress" alt="new picture product" src={require(`../images${product.base1}`)} />
                                     <div className="bottomCardProductDress">
-                                            <p style={{ marginBottom: '0px', width: '90%', justifyContent: 'flex-start', alignItems: 'flex-start' }} className="text">{product.title}</p>
+                                            <p style={{ marginBottom: '0px', width: '90%', justifyContent: 'flex-start', alignItems: 'flex-start' }} className="textTitleProductDress">{product.title}</p>
                                     </div>
                                     </Link>
                                     )

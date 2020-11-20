@@ -1,9 +1,13 @@
 import { ConsoleSqlOutlined } from '@ant-design/icons'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import './Star.scss'
 
 export const Star = ({ star }: any) => {
+
+    useEffect(() => {
+
+    }, [star])
 
     return (
         <>

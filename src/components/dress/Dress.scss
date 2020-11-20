@@ -24,6 +24,21 @@
 
 }
 
+.textTitleProductDress{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    max-height: 50px;
+    white-space: normal;
+}
+
 .rightCardDressZoom{
     display: flex;
     justify-content: flex-start;
@@ -31,12 +46,6 @@
     flex-direction: column;
     width: 50%;
     height: 100%;
-}
-
-.bottomCardProductDress{
-    height: 30px;
-    padding: 10px;
-    width: 100%;
 }
 
 .imgProductDress{

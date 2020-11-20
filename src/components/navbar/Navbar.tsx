@@ -13,6 +13,9 @@ export const Navbar = () => {
 
     return (
         <div className="containerNavbar">
+            <div className="detailNavbar">
+                <p style={{color: 'white', fontSize: '14px'}} className="text">Livraison offerte, service client 7/7 24h</p>
+            </div>
             <div className="rowNavbar">
         <p className="titleNavbar">CLOTHESTAR</p>
         {window.innerWidth > 1100 ?
