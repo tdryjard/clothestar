@@ -44,7 +44,7 @@
 }
 
 .rightCardProductPanier{
-    width: 40%;
+    width: 30%;
     margin-left: 5%;
     margin-right: 0px;
     display: flex;
@@ -128,7 +128,7 @@
     justify-content: start;
     align-items: center;
     flex-direction: row;
-    width: 50%;
+    width: 60%;
     margin-right: 0px
 }
 
@@ -137,6 +137,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
+    max-height: 100%;
 }
 
 .textDeleteArticlePanier{
@@ -236,6 +238,11 @@
         font-size: 20px;
         margin-bottom: 0px;
         margin-top: 5px;
+        text-overflow: ellipsis;
+        height: 40px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     .describeProductPanier{

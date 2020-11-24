@@ -17,7 +17,10 @@ export const Navbar = () => {
                 <p style={{color: 'white', fontSize: '14px'}} className="text">Livraison offerte, service client 7/7 24h</p>
             </div>
             <div className="rowNavbar">
-        <p className="titleNavbar">CLOTHESTAR</p>
+        {window.innerWidth > 1100 &&
+        <Link to="/" className="titleNavbar">CLOTHESTAR <a onClick={(e) => e.stopPropagation()} className="iconInstagram" href="https://www.instagram.com/clothestar_" target="_blank"> <img style={{height: '35px', width: 'auto'}} alt="icon instagram" src={require('../images/instagram.png')}/> </a></Link>}
+        {window.innerWidth < 1100 &&
+        <a className="iconInstagram" href="https://www.instagram.com/clothestar_" target="_blank"> <img style={{height: '35px', width: 'auto'}} alt="icon instagram" src={require('../images/instagram.png')}/> </a>}
         {window.innerWidth > 1100 ?
                 <div className="containerLinkNav">
                     <Link className={origin === "/" ? "linkOn" : "link"} to="/">DRESSINGS</Link>
