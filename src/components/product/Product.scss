@@ -9,6 +9,29 @@
     margin-bottom: 80px;
 }
 
+.promoTicket{
+    position: absolute;
+    top: 85%;
+    left: 0px;
+    animation: fluidDrop 0.8s;
+}
+
+@keyframes fluidDrop {
+    from {
+        top: 0px;
+        animation-timing-function: cubic-bezier(0.7, 0.22, 0.725, 0.61);
+    }
+    85%{
+        top: 85%;
+    }
+    95%{
+        top: 81%;
+    }
+    to {
+        top: 85%;
+    }
+}
+
 .cardProduct{
     display: flex;
     justify-content: center;
@@ -201,6 +224,7 @@
     flex-direction: column;
     width: 40%;
     height: 100%;
+    position: relative;
 }
 
 .logoCard{
@@ -316,6 +340,31 @@
 }
 
 @media screen and (max-width: 800px){
+
+    .promoTicket{
+        position: absolute;
+    top: 40px;
+    animation: fluidDrop 0.5s;
+    height: 60px;
+    width: auto;
+    left: 23%;
+}
+    
+    @keyframes fluidDrop {
+        from {
+            top: 0px;
+            animation-timing-function: cubic-bezier(0.7, 0.22, 0.725, 0.61);
+        }
+        85%{
+            top: 40px;
+        }
+        95%{
+            top: 30px;
+        }
+        to {
+            top: 40px;
+        }
+    }
     .containerProductZoom{
         height: auto;
         min-height: 100vh;

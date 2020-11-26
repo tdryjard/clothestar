@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import {PlusOutlined, MinusOutlined} from '@ant-design/icons'
 import {Buy} from '../buy/Buy'
 import {Navbar} from '../navbar/Navbar'
+import url from '../../api/url'
 import './Panier.scss'
 
 
@@ -12,6 +13,16 @@ export const Panier = ({products} : any) => {
     const [sizeWindow, setSizeWindow] = useState<any>(window.screen.width)
     const [validPanier, setValidPanier] = useState(false)
     const [payment, setPayment] = useState(false)
+    const [promoCode, setPromoCode] = useState('')
+    const [goodPromo, setGoodPromo] = useState<any>('')
+    const [newTotalPrice, setNewTotalPrice] = useState<any>(null)
+
+    const { Search } = Input;
+
+    const headerReq : any = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true
+    }
 
     useEffect(() => {
         if(localStorage.getItem('panier') && products.length > 0){
@@ -35,7 +46,9 @@ export const Panier = ({products} : any) => {
         panier.map((product: any) => {
             price += (product.price*product.nb)
         })
-        setTotalPrice(parseFloat(price).toFixed(2))
+        price = parseFloat(price).toFixed(2)
+        setTotalPrice(price)
+        if(newTotalPrice) setNewTotalPrice(price - (price * goodPromo / 100))
     }, [panier])
 
     const changeQuantity = (index: any, type : any) => {
@@ -69,6 +82,27 @@ export const Panier = ({products} : any) => {
         }
     }
 
+    const addPromoCode = async () => {
+        const res : any = await fetch(`${url}/promoCode`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: headerReq,
+            body: JSON.stringify({
+                promoCode
+            })
+        })
+        if(res) {
+            const resJson : any = await res.json()
+            if(resJson[0] && resJson[0].name){
+                setGoodPromo(resJson[0].percent)
+            }
+        }
+    }
+
+    useEffect(() => {
+        setNewTotalPrice(totalPrice - (totalPrice*parseInt(goodPromo, 10)/100))
+    }, [goodPromo])
+
 
 
 
@@ -83,13 +117,30 @@ export const Panier = ({products} : any) => {
         sizeWindow < 1000 && !validPanier &&
         <div className="containerBuyPanier">
             <p className="titlePricePanier">Total :</p>
+            {newTotalPrice ?
+            <div style={{justifyContent: 'flex-start'}} className="row">
+            <div className="containerPromoPricePanier">
             <p className="pricePanier">{totalPrice}€</p>
+            <div className="tiretPromoPanier" />
+            </div>
+            <p className="pricePanier">{newTotalPrice}€</p>
+        </div>
+        :
+        <p className="pricePanier">{totalPrice}€</p>}
+            
             <p className="textPurchasePanier">Temps de livraison estimé : 7 à 18 jours</p>
             <p className="tiret"/>
-            {panier && panier.length > 0 && <button onClick={() => setValidPanier(true)} style={{marginLeft: '20px'}} className="buttonPanier">Valider le panier</button>}
+            {panier && panier.length > 0 &&
+            <>
+            <button onClick={() => setValidPanier(true)} style={{marginLeft: '20px'}} className="buttonPanier">Valider le panier</button>
+            <div style={{justifyContent: 'flex-start'}} className="row">
+            <Input className="inputCodePromo" placeholder="Code promo" onChange={(e : any) => setPromoCode(e.target.value)} onPressEnter={() => addPromoCode()}/>
+            <button onClick={addPromoCode} className="buttonValidPromoCode">valider</button>
+            </div>
+                </>}
         </div>}
         {sizeWindow < 1000 && validPanier &&
-            <Buy panier={panier} price={totalPrice}/>}
+            <Buy newTotalPrice={newTotalPrice} promoCode={promoCode} panier={panier} price={totalPrice}/>}
         {!validPanier &&
             <div className="containerProductsPanier">
             {panier.map((product : any, index : any) => {
@@ -142,13 +193,29 @@ export const Panier = ({products} : any) => {
             {sizeWindow > 1000 && !validPanier &&
             <div className="containerBuyPanier">
                 <p className="titlePricePanier">Total :</p>
-                <p className="pricePanier">{totalPrice}€</p>
+            {newTotalPrice ?
+            <div style={{justifyContent: 'flex-start'}} className="row">
+            <div className="containerPromoPricePanier">
+            <p className="pricePanier">{totalPrice}€</p>
+            <div className="tiretPromoPanier" />
+            </div>
+            <p className="pricePanier">{newTotalPrice}€</p>
+        </div>
+        :
+        <p className="pricePanier">{totalPrice}€</p>}
                 <p className="textPurchasePanier">Temps de livraison estimé : 7 à 18 jours</p>
                 <p className="tiret"/>
-                {panier && panier.length > 0 && <button onClick={() => setValidPanier(true)} className="buttonPanier">Valider le panier</button>}
+                {panier && panier.length > 0 && 
+                <>
+                <button onClick={() => setValidPanier(true)} className="buttonPanier">Valider le panier</button>
+                <div style={{justifyContent: 'flex-start'}} className="row">
+            <Input className="inputCodePromo" placeholder="Code promo" onChange={(e : any) => setPromoCode(e.target.value)} onPressEnter={() => addPromoCode()}/>
+            <button onClick={addPromoCode} className="buttonValidPromoCode">valider</button>
+            </div>
+                </>}
             </div>}
             {sizeWindow > 1000 && validPanier &&
-                <Buy panier={panier} price={totalPrice} />}
+                <Buy newTotalPrice={newTotalPrice} promoCode={promoCode} panier={panier} price={totalPrice} />}
         </div>
     )
 }

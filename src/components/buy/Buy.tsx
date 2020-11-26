@@ -5,14 +5,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import {Navbar} from '../navbar/Navbar'
 
 
-export const Buy = ({ panier, price }: any) => {
+export const Buy = ({ panier, price, promoCode, newTotalPrice }: any) => {
 
     const stripePromise = loadStripe("pk_live_u4e03SLJFJMC8k4Bv7g1T3Py00rrpMeJLo");
 
     return (
         <div className="containerElementPayment">
         <Elements stripe={stripePromise}>
-            <CheckoutForm panier={panier} price={price} />
+            <CheckoutForm newTotalPrice={newTotalPrice} promoCode={promoCode} panier={panier} price={price} />
         </Elements>
         </div>
     );

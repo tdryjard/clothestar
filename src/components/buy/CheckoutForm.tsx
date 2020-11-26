@@ -4,7 +4,7 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import {Link} from 'react-router-dom'
 import './payment.css'
 
-export const CheckoutForm = ({ panier, price }: any) => {
+export const CheckoutForm = ({ panier, price, promoCode, newTotalPrice }: any) => {
 
     const [email, setEmail] = React.useState<string>('')
     const [name, setName] = React.useState<string>('')
@@ -18,6 +18,11 @@ export const CheckoutForm = ({ panier, price }: any) => {
 
     const stripe = useStripe();
     const elements = useElements();
+
+    const headerReq : any = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true
+    }
 
     const CARD_OPTIONS: object = {
         iconStyle: 'solid',
@@ -86,6 +91,23 @@ export const CheckoutForm = ({ panier, price }: any) => {
             })
             const resCustomJson = await resCustomer.json()
             if (resCustomJson) {
+                let percent = 0
+                if(newTotalPrice){
+                        const res : any = await fetch(`${url}/promoCode`, {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: headerReq,
+                            body: JSON.stringify({
+                                promoCode
+                            })
+                        })
+                        if(res) {
+                            const resJson : any = await res.json()
+                            if(resJson[0] && resJson[0].name){
+                                percent =  await resJson[0].percent
+                            }
+                        }
+                }
                 let price : any = 0
                     fetch(`${url}/product/find`)
                     .then(res => res.json())
@@ -97,6 +119,8 @@ export const CheckoutForm = ({ panier, price }: any) => {
                             
                         }
                         if(price){
+                            if(percent) price = (price - (price*percent/100))
+
                         fetch(`${url}/secret`, {
                             method: 'post',
                             credentials: 'include',
@@ -198,7 +222,20 @@ export const CheckoutForm = ({ panier, price }: any) => {
                         <CardElement options={CARD_OPTIONS} />
                     </div>
                     <p className="textConfirmCGV">En appuyant sur valider vous confirmez avoir pris connaissance de nos <Link to="/conditions-generales-de-vente" target="_blank" className="cgvConfirm">conditions générales de vente</Link> </p>
-                    {!load && <button style={{ marginTop: '15px', maxWidth: '80%' }} onClick={() => { subscription() }} type="submit" className="button">Valider commande {price}€</button>}
+                    {!load &&
+                    <button style={{ marginTop: '15px', maxWidth: '80%' }} onClick={() => { subscription() }} type="submit" className="button">
+                        {newTotalPrice ?
+            <div style={{justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center'}} className="row">
+                Valider commande 
+            <div style={{width: '45px', height: 'auto', marginLeft: '13px', marginRight: '13px'}} className="containerPromoPricePanier">
+            <p style={{marginBottom: '0px', marginTop: '0px', fontSize: '18px'}} className="pricePanier">{price}€</p>
+            <div className="tiretPromoCheckout" />
+            </div>
+            <p style={{marginBottom: '0px', marginTop: '0px'}} className="pricePanier">{newTotalPrice}€</p>
+        </div>
+        :
+        <p className="pricePanier">Valider commande  {price}€</p>}
+        </button>}
                 </div>
                 :
                 <div className="containerBuy" >

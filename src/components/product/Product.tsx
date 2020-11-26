@@ -31,16 +31,31 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
     const [productAdd, setProductAdd] = useState<any>([])
     const [sizeSelect, setSizeSelect] = useState(null)
     const [sizeWindow, setSizeWindow] = useState(window.innerWidth)
+    const [promo, setPromo] = useState(false)
+    const [productAdding, setProductAdding] = useState(false)
 
     const [imgSelect, setImgSelect] = useState(1)
 
       useEffect(() => {
+          if(productAdding){
         setTimeout(() => {
             const element : any = document.getElementsByClassName('containerProductZoom')
            if(element && element.length > 0)  element[0].scrollTop = 2000
         }, 300)
+    }
 
       }, [sizeSelect, panier])
+
+      useEffect(() => {
+          if(sessionStorage.getItem('promoClothestar') !== 'true'){
+            setTimeout(() => {
+                setPromo(true)
+                sessionStorage.setItem('promoClothestar', 'true')
+            }, 3000)
+        } else {
+            sessionStorage.setItem('promoClothestar', 'false')
+        }
+      }, [])
     
 
     const headRequest: any = {
@@ -285,6 +300,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                         <div className="contentProductZoom">
                             {sizeWindow > 1000 ?
                                 <div className="leftCardProductZoom">
+                                {promo && window.innerWidth > 1100 && <img src={require('../images/promo.png')} alt="promo ticket clothestar" className="promoTicket"/>}
                                     <div className="containerLittleImgProduct">
                                         {base2 &&
                                             <img onClick={() => { imgSelect === 1 ? setImgSelect(2) : imgSelect === 2 ? setImgSelect(3) : setImgSelect(1) }} className="imgProductZoom2" alt="new picture product" src={imgSelect === 1 ? require(`../images${base2}`) : imgSelect === 2 ? require(`../images${base3}`) : require(`../images${base1}`)} />}
@@ -304,6 +320,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                     </div>
                                 </div>}
                             <div className="rightCardProductZoom">
+
                                 <p className="title">{title}</p>
                                 <div className="containerPrice">
                                     {pricePromo && pricePromo !== "0" &&
@@ -311,21 +328,24 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                             <p style={{ fontSize: '20px' }} className="text">{pricePromo}€</p>
                                             <div className="tiretPromo" />
                                         </div>}
-                                    <p style={{ fontSize: '22px' }} className="textPrice">{price}€</p>
+                                    <p style={window.innerWidth < 1100 ? { fontSize: '22px', width: '100%', position: 'relative', textAlign: 'center' } : { fontSize: '22px', width: '100%', position: 'relative', textAlign: 'start' }} className="textPrice">{price}€
+                                    
+                            {promo && window.innerWidth < 1100 && <img src={require('../images/promo.png')} alt="promo ticket clothestar" className="promoTicket"/>}
+                            </p>
                                 </div>
-                                <p style={{ marginTop: '60px' }} className="text">{description}</p>
+                                <p style={{ marginTop: '90px' }} className="text">{description}</p>
                                 <p style={{marginBottom: '5px', marginTop: '20px'}} className="title">Selectionner taille</p>
                             <div className="containerSizeProduct">
                                 {sizes.map((size: any, index : any) => {
                                     return(
                                         size &&
-                                    <p onClick={() => {return(setSizeSelect(size))}} className={sizeSelect === size ? "boxSizeSelect" : "boxSize"}>{size}</p>
+                                    <p onClick={() => {return(setSizeSelect(size), setProductAdding(true))}} className={sizeSelect === size ? "boxSizeSelect" : "boxSize"}>{size}</p>
                                     )
                                 })}
                             </div>
                             {sizeSelect !== null && pricePromo !== '0' &&
                                     ((!(panier && JSON.parse(panier).panier && JSON.parse(panier).panier && JSON.parse(panier).panier.some((article : any) => (article.article.id === id && article.article.size === sizeSelect)))) && (!productAdd.includes(sizeSelect))) ?
-                                    <button style={sizeWindow > 1000 ? { marginTop: '60px' } : {marginTop : '20px'}} onClick={savePanier} className="button">Ajouter au panier</button>
+                                    <button style={sizeWindow > 1000 ? { marginTop: '60px' } : {marginTop : '20px'}} onClick={() => {return(savePanier(), setProductAdding(true) )}} className="button">Ajouter au panier</button>
                                 : sizeSelect !== null &&
                                 <>
                                 <button style={{ marginTop: '20px' }} className="buttonOn">Déja dans ton panier <CheckOutlined  style={{color: 'white', marginLeft: '15px'}} /> </button>

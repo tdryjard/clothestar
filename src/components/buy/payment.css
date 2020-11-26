@@ -38,3 +38,10 @@
 .cgvConfirm{
     color: rgb(0, 174, 255);
 }
+
+.tiretPromoCheckout{
+    position: absolute;
+    background-color: black;
+    height: 1px;
+    width: 90%;
+}

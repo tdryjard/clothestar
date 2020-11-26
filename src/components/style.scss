@@ -48,6 +48,29 @@ input::placeholder{
     padding: 5px 25px 5px 25px;
 }
 
+.inputCodePromo{
+    background-color: white;
+    border-radius: 3px;
+    border: rgb(248, 146, 163) 1px solid;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+      0 1px 0 #c0c0c0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    height: 15px;
+    width: 90px;
+    padding: 5px 25px 5px 25px;
+    margin-top: 15px;
+    margin-left: 25px;
+    text-align: start;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 13px;
+}
+
+.inputCodePromo::placeholder{
+    color: rgb(88, 88, 88);
+}
+
 .text{
     margin: 0;
     font-family: 'Poppins', sans-serif;
