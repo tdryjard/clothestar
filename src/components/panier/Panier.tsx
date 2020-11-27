@@ -101,7 +101,8 @@ export const Panier = ({products} : any) => {
     }
 
     useEffect(() => {
-        setNewTotalPrice(totalPrice - (totalPrice*parseInt(goodPromo, 10)/100))
+        let newPrice : any = (totalPrice - (totalPrice * parseInt(goodPromo, 10)/100))
+        setNewTotalPrice(parseFloat(newPrice).toFixed(2))
     }, [goodPromo])
 
 
