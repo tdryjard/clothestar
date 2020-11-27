@@ -49,7 +49,7 @@ export const Panier = ({products} : any) => {
         price = parseFloat(price).toFixed(2)
         setTotalPrice(price)
         let newPrice : any = (price - (price * goodPromo / 100))
-        if(newTotalPrice && goodPromo) setNewTotalPrice(parseFloat(newPrice).toFixed(2))
+        if(newTotalPrice) setNewTotalPrice(parseFloat(newPrice).toFixed(2))
     }, [panier])
 
     const changeQuantity = (index: any, type : any) => {
