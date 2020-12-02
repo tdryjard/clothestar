@@ -75,7 +75,7 @@ export const Landing = ({products} : any) => {
             {load ?
             <img src={require('../../images/load.gif')} className="load"/>
             :
-            <div style={!loc ? { marginTop: '150px'} :  { marginTop: '50px'}} className="containerProducts">
+            <div style={!loc ? { marginTop: '150px', width: '90%'} :  { marginTop: '50px', width: '90%'}} className="containerProducts">
                 {starSearch[1] === "star" &&
                 stars.map((star : any) => {
                     return(
