@@ -333,7 +333,7 @@ export const Product = ({ stock, dateDelivery, imageId1, imageId2, imageId3, id,
                 <div className="containerProductZoom">
                     {!command && !deleteProduct && !editProduct ?
                         <div className="contentProductZoom">
-                            <div className="row" style={{alignItems: 'flex-start'}}>
+                            <div className="column" style={sizeWindow < 1000 ? {alignItems: 'flex-start'} : {flexDirection: 'row', alignItems: 'flex-start'}}>
                             {sizeWindow > 1000 ?
                                 <div className="leftCardProductZoom">
                                 {promo && window.innerWidth > 1100 && <img src={require('../images/promo.png')} alt="promo ticket clothestar" className="promoTicket"/>}

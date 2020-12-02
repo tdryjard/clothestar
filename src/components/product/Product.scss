@@ -5,6 +5,7 @@
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 100px;
 }
 
 .promoTicket{
@@ -146,6 +147,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    padding-top: 50px;
 }
 
 .contentProductZoom{
@@ -157,7 +159,7 @@
     overflow: hidden;
     width: 1000px;
     min-height: 60%;
-    margin-top: 7%;
+    margin-top: 100px;
     padding: 5%;
     box-shadow: 2px 2px 5px rgb(134, 134, 134);
 }
@@ -410,16 +412,18 @@
         width: 100%;
         height: auto;
         padding: 5%;
-        padding-top: 100px;
+        padding-top: 50px;
         flex-direction: column;
         align-items: flex-start;
         position: absolute;
+        margin-top: 50px;
     }
     .contentProductZoomDress{
         width: 100%;
         height: auto;
         padding: 5%;
-        padding-bottom: 5vh;
+        padding-bottom: 50px;
+        padding-top: 80px;
 
         min-height: 100vh;
         flex-direction: column;

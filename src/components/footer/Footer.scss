@@ -122,12 +122,16 @@
         margin-left: 20px;
         align-items: center;
         justify-content: center;
+        height: 100%;
+        width: 100%;
+        margin: 0;
     }
     .logoFooter{
         margin-left: 50px !important;
         margin-right: 20px !important;
     }
     .containerLinkFooter{
+        width: 100%;
     }
     .titleFooter{
         display: none;
@@ -144,8 +148,8 @@
         width: auto;
     }
     .nbArticlePanierFooter{
-        left: 8px;
-        top: 1px;
+        left: 10px;
+        top: 15px;
         font-size: 15px;
     }
 

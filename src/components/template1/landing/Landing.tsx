@@ -75,7 +75,7 @@ export const Landing = ({products} : any) => {
             {load ?
             <img src={require('../../images/load.gif')} className="load"/>
             :
-            <div style={!loc ? { marginTop: '150px', width: '90%'} :  { marginTop: '50px', width: '90%'}} className="containerProducts">
+            <div style={!loc ? { marginTop: '150px', width: '90%'} :  { marginTop: '50px', width: '100%'}} className="containerProducts">
                 {starSearch[1] === "star" &&
                 stars.map((star : any) => {
                     return(
@@ -92,7 +92,7 @@ export const Landing = ({products} : any) => {
                                     {star.name && <p style={{fontSize: '20px'}} className="title">{star.name}</p>}
                         </div>
                         </div>
-                        <Link to='/?cfc' onClick={() => setStarSearch('')}  style={{marginTop: '30px'}} className="button">Retrouver les tenues de toutes les stars</Link>
+                        <Link to='/?all' onClick={() => setStarSearch('')}  style={{marginTop: '30px'}} className="button">Retrouver les tenues de toutes les stars</Link>
                         </div>
                     )
                 })}
