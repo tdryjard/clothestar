@@ -29,7 +29,7 @@ export const StarPlace = () => {
                 <meta name="robots" content="index, follow" />
             </head>
             <Navbar />
-            <div style={{ marginTop: '150px' }} className="containerProducts">
+            <div style={{ marginTop: '150px', width: '80%' }} className="containerProducts">
                 {stars.length > 0 && stars.map((star: any) => {
                     return (
                         <Star star={star}/>

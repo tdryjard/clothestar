@@ -8,7 +8,7 @@ export const Dress = ({ dress }: any) => {
 
     return (
         <>
-            {!window.location.search ?
+            {!window.location.search || window.location.search.split('?')[1] === 'star' ?
                 <div className="cardProduct">
                     <Link style={{ textDecoration: 'none' }} to={`/?tenue${dress.id}`}>
                         <div className="leftCardProduct">
