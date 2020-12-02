@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 :root{
     --first-color: #ffffff;
     --second-color: #292929;
@@ -56,8 +58,8 @@ input::placeholder{
       0 1px 0 #c0c0c0;
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
-    height: 15px;
-    width: 90px;
+    height: 27px;
+    width: 140px;
     padding: 5px 25px 5px 25px;
     margin-top: 15px;
     margin-left: 25px;

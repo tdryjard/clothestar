@@ -15,6 +15,7 @@ export type PropsShop = {
     imageId3 : string
     dateDelivery: string
     sizes : any
+    stock : string
 }
 
 export type PropsBuy = {

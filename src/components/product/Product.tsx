@@ -5,9 +5,10 @@ import url from '../../api/url'
 import { Link } from 'react-router-dom'
 import { CheckOutlined } from '@ant-design/icons'
 import {Navbar} from '../navbar/Navbar'
+import { Rate, Divider, Input } from 'antd';
 import './Product.scss'
 
-export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title, base1, base2, base3, description, price, pricePromo, priceId, tokenProps, verifToken, sizes }: PropsShop) => {
+export const Product = ({ stock, dateDelivery, imageId1, imageId2, imageId3, id, title, base1, base2, base3, description, price, pricePromo, priceId, tokenProps, verifToken, sizes }: PropsShop) => {
     const [command, setCommand] = useState(false)
     const [editProduct, setEditProduct] = useState(false)
     const [deleteProduct, setDeleteProduct] = useState(false)
@@ -33,18 +34,13 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
     const [sizeWindow, setSizeWindow] = useState(window.innerWidth)
     const [promo, setPromo] = useState(false)
     const [productAdding, setProductAdding] = useState(false)
+    const [newRate, setNewRate] = useState<any>()
+    const [newComment, setNewComment] = useState('')
+    const [newPersonComment, setNewPersonComment] = useState('')
+    const [comments, setComments] = useState([])
+    const [newStock, setNewStock] = useState('')
 
     const [imgSelect, setImgSelect] = useState(1)
-
-      useEffect(() => {
-          if(productAdding){
-        setTimeout(() => {
-            const element : any = document.getElementsByClassName('containerProductZoom')
-           if(element && element.length > 0)  element[0].scrollTop = 2000
-        }, 300)
-    }
-
-      }, [sizeSelect, panier])
 
       useEffect(() => {
           if(sessionStorage.getItem('promoClothestar') !== 'true'){
@@ -65,8 +61,14 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
     }
 
     useEffect(() => {
-
+        getComment()
     }, [updated])
+
+    const getComment = async () => {
+        const res = await fetch(`${url}/advice/find/${id}`)
+        const resJson = await res.json()
+        setComments(resJson.reverse())
+    }
 
     useEffect(() => {
         if(localStorage.getItem('panier')){
@@ -264,6 +266,39 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
         setSizeWindow(window.screen.width)
     };
 
+    const sendAdvice = async () => {
+            const res = await fetch(`${url}/advice/create`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: headRequest,
+                body: JSON.stringify({
+                    comment: newComment,
+                    promo_price: newPromoPrice,
+                    product_id : id,
+                    rate : newRate,
+                    person : newPersonComment
+                })
+            })
+            if (res) {
+                setUpdated(!updated)
+            }
+    }
+
+    const sendNewStock = async () => {
+        const res = await fetch(`${url}/product/update/${id}`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: headRequest,
+            body: JSON.stringify({
+                stock: newStock
+            })
+        })
+        if (res) {
+            setNewStock('')
+            setUpdated(!updated)
+        }
+    }
+
     return (
         <>
         {!(tokenProps && verifToken) && <Navbar/>}
@@ -298,6 +333,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                 <div className="containerProductZoom">
                     {!command && !deleteProduct && !editProduct ?
                         <div className="contentProductZoom">
+                            <div className="row" style={{alignItems: 'flex-start'}}>
                             {sizeWindow > 1000 ?
                                 <div className="leftCardProductZoom">
                                 {promo && window.innerWidth > 1100 && <img src={require('../images/promo.png')} alt="promo ticket clothestar" className="promoTicket"/>}
@@ -320,6 +356,8 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                     </div>
                                 </div>}
                             <div className="rightCardProductZoom">
+                                {stock &&
+                                <p style={parseInt(stock, 10) < 5 ? {color: 'red'} : {}} className="textStock">stock restant : {stock}</p>}
 
                                 <p className="title">{title}</p>
                                 <div className="containerPrice">
@@ -333,7 +371,7 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                             {promo && window.innerWidth < 1100 && <img src={require('../images/promo.png')} alt="promo ticket clothestar" className="promoTicket"/>}
                             </p>
                                 </div>
-                                <p style={{ marginTop: '90px' }} className="text">{description}</p>
+                                <p style={promo ? { marginTop: '90px' } : {marginTop: '25px'}} className="text">{description}</p>
                                 <p style={{marginBottom: '5px', marginTop: '20px'}} className="title">Selectionner taille</p>
                             <div className="containerSizeProduct">
                                 {sizes.map((size: any, index : any) => {
@@ -348,10 +386,24 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                     <button style={sizeWindow > 1000 ? { marginTop: '60px' } : {marginTop : '20px'}} onClick={() => {return(savePanier(), setProductAdding(true) )}} className="button">Ajouter au panier</button>
                                 : sizeSelect !== null &&
                                 <>
-                                <button style={{ marginTop: '20px' }} className="buttonOn">Déja dans ton panier <CheckOutlined  style={{color: 'white', marginLeft: '15px'}} /> </button>
-                                 <Link to='/panier' style={{ marginTop: '30px' }} className="buttonPanier">Consulter panier <img src={require('../images/panier.png')}  style={sizeWindow > 1000 ? {color: 'white', marginLeft: '15px', height: '45px'} : {color: 'white', height: '45px'}} /> </Link>
+                                <button style={{ marginTop: '20px' }} className="buttonOn">Déja dans votre panier <CheckOutlined  style={{color: 'white', marginLeft: '15px'}} /> </button>
+                                 <Link to='/panier' style={{ marginTop: '30px' }} className="buttonPanier">Consulter panier <img src={require('../images/panier_gradient.png')}  style={sizeWindow > 1000 ? {color: 'white', marginLeft: '15px', height: '45px'} : {color: 'white', marginLeft: '15px', height: '45px'}} /> </Link>
+                                 <Link to='/' style={{ marginTop: '30px' }} className="buttonPanier">Revenir aux tenues <img src={require('../images/hanger_gradient.png')}  style={sizeWindow > 1000 ? {color: 'white', marginLeft: '15px', height: '45px'} : {color: 'white', marginLeft: '15px', height: '45px'}} /> </Link>
                                 </>}
                             </div>
+                        </div>
+                            {comments.map((comment : any, index : any) => {
+                            return(
+                       <div className="contentComment">
+                           <Divider />
+                       <div className="rowComment">
+                   <Rate disabled defaultValue={comment.rate} />
+                   <p className="personComment">{comment.person}</p>
+                   </div>
+                   <p className="commentText">{comment.comment}</p>
+                    </div> 
+                            )
+                        })}
                         </div>
                         :
                         <div className="contentProductZoom">
@@ -363,6 +415,8 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
             {editProduct && tokenProps && verifToken && !deleted ?
                 <div className="containerProductZoom">
                     <div className="contentProductZoom">
+                        <div className="column">
+                        <div className="row">
                         {sizeWindow > 1000 ?
                             <div className="leftCardProductZoom">
                                 <div className="containerLittleImgProduct">
@@ -498,8 +552,33 @@ export const Product = ({ dateDelivery, imageId1, imageId2, imageId3, id, title,
                                         <input style={{ marginTop: '30px', marginBottom: '10px' }} className="input" placeholder="nouveau temps de livraison" onChange={(e) => { setNewDateDelivery(e.target.value) }} />
                                         <button className="button" onClick={sendNewDateDelivery}>Valider</button>
                                     </div>}
+                            <Input placeholder="stock" onPressEnter={sendNewStock} defaultValue={stock ? stock : ''} onChange={(e: any) => setNewStock(e.target.value)}/>
                             {!editProduct && <button style={{ marginTop: '60px' }} onClick={() => { setCommand(true) }} className="button">Commander</button>}
                         </div>
+                        </div>
+                    <div className="containerComment">
+                       <div className="contentComment">
+                           <div className="rowComment">
+                       <Rate onChange={(e: any) => setNewRate(e)} allowHalf defaultValue={2.5} />
+                       <input placeholder="nom personne" style={{marginLeft: '20px'}} className="input" onChange={(e : any) => setNewPersonComment(e.target.value)}/>
+                       </div>
+                       <textarea placeholder="commentaire" style={{marginTop: '20px', marginBottom: '15px'}} onChange={(e: any) => setNewComment(e.target.value)}/>
+                        </div> 
+                        <button onClick={sendAdvice} className="button">add comment</button>
+                        {comments.map((comment : any, index : any) => {
+                            return(
+                       <div className="contentComment">
+                           <Divider />
+                       <div className="rowComment">
+                   <Rate disabled defaultValue={comment.rate} />
+                   <p className="personComment">{comment.person}</p>
+                   </div>
+                   <p className="commentText">{comment.comment}</p>
+                    </div> 
+                            )
+                        })}
+                    </div>
+                    </div>
                     </div>
                 </div>
                 : deleteProduct && tokenProps && verifToken && !deleted &&

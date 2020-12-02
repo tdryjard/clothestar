@@ -30,6 +30,7 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
     const [starSelect, setStarSlect] = useState<any>()
     const [dressSelect, setDressSelect] = useState<any>()
     const [sizes, setSizes] = useState(['', '', '', '', '', '', '', ''])
+    const [stock, setStock] = useState('')
 
 
     useEffect(() => {
@@ -159,7 +160,8 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
                         image_id_3: imgId3,
                         date_delivery: dateDelivery,
                         dress_id : dressSelect.id,
-                        sizes : sizes
+                        sizes : sizes,
+                        stock : stock
                     })
                 })
                 if (lastRes){
@@ -258,6 +260,9 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
                     <input className="input"
                         placeholder="temps de livraison estimé"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setDateDelivery(e.target.value) }} />
+                        <input className="input"
+                            placeholder="stock"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setStock(e.target.value) }} />
                     <button onClick={createProduct} style={{ marginTop: '40px' }} className="button">Ajouter le produit</button>
                 </div>
             </div>
@@ -331,7 +336,7 @@ export const AddProduct = ({ tokenProps, verifToken }: propsAdmin) => {
             <div className="containerProducts">
                 {products.length && products.map((product: any) => {
                     return (
-                        <Product dateDelivery={product.date_delivery} imageId1={product.image_id} imageId2={product.image_id_2} imageId3={product.image_id_3} id={product.id} tokenProps={tokenProps} verifToken={verifToken} priceId={product.price_stripe_id} pricePromo={product.promo_price} price={product.price} title={product.title} description={product.description} base1={product.base1} base2={product.base2} base3={product.base3} 
+                        <Product stock={product.stock} dateDelivery={product.date_delivery} imageId1={product.image_id} imageId2={product.image_id_2} imageId3={product.image_id_3} id={product.id} tokenProps={tokenProps} verifToken={verifToken} priceId={product.price_stripe_id} pricePromo={product.promo_price} price={product.price} title={product.title} description={product.description} base1={product.base1} base2={product.base2} base3={product.base3} 
                         sizes={[product.size1, product.size2, product.size3, product.size4, product.size5, product.size6, product.size7, product.size8]} />
                     )
                 })}
