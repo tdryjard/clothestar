@@ -302,7 +302,7 @@ export const Product = ({ stock, dateDelivery, imageId1, imageId2, imageId3, id,
     return (
         <>
         {!(tokenProps && verifToken) && <Navbar/>}
-            {window.location.search !== encodeURI(productLocation) && !deleted && !editProduct && !deleteProduct ?
+            {tokenProps && verifToken && window.location.search !== encodeURI(productLocation) && !deleted && !editProduct && !deleteProduct ?
                 <div className="cardProduct">
                     {tokenProps && verifToken &&
                         <img src={require('../images/edit.png')} alt="edit logo" className="logoCard" onClick={() => { setEditProduct(true) }} />}
