@@ -92,7 +92,7 @@ export const Landing = ({products} : any) => {
                                     {star.name && <p style={{fontSize: '20px'}} className="title">{star.name}</p>}
                         </div>
                         </div>
-                        <Link to='/?all' onClick={() => setStarSearch('')}  style={{marginTop: '30px'}} className="button">Retrouver les tenues de toutes les stars</Link>
+                        <Link to='/' onClick={() => setStarSearch('')}  style={{marginTop: '30px'}} className="button">Retrouver les tenues de toutes les stars</Link>
                         </div>
                     )
                 })}

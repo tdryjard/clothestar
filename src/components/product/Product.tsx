@@ -377,7 +377,7 @@ export const Product = ({ stock, dateDelivery, imageId1, imageId2, imageId3, id,
                                 {sizes.map((size: any, index : any) => {
                                     return(
                                         size &&
-                                    <p onClick={() => {return(setSizeSelect(size), setProductAdding(true))}} className={sizeSelect === size ? "boxSizeSelect" : "boxSize"}>{size}</p>
+                                    <p onClick={() => {return(setSizeSelect(size), setProductAdding(true) )}} className={sizeSelect === size ? "boxSizeSelect" : "boxSize"}>{size}</p>
                                     )
                                 })}
                             </div>
