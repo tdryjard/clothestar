@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ReactPixel from 'react-facebook-pixel';
 import ReactGA from 'react-ga';
 
 import { Landing } from './components/template1/landing/Landing'
@@ -15,10 +16,18 @@ import './components/style.scss';
 
 export function App() {
   const [products, setProducts] = useState([])
+ 
+  const advancedMatching = { em: 'clothestar.shop@gmail.com' }; // optional, more info: https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching
+  const options = {
+    autoConfig: true, // set pixel's autoConfig
+    debug: false, // enable logs
+  };
   
   useEffect(() => {
     GetProducts()
     initializeReactGA()
+    ReactPixel.init('415291002935659', advancedMatching, options);
+  ReactPixel.pageView(); // For tracking page view
   }, [])
   
   const GetProducts = async () => {
@@ -28,6 +37,7 @@ export function App() {
         if (resJson) setProducts(resJson)
     }
   }
+
 
   function initializeReactGA() {
     ReactGA.initialize('UA-144328716-1');
@@ -48,15 +58,15 @@ export function App() {
     <>
     {products &&
     <Switch>
-    <Route products={products} exact path="/" render={(props : any) => {
+    <Route products={products} exact path="/" render={(props) => {
       return (<Landing {...props} products={products}/>)
     }} />
       <Route path="/admin" component={Admin} />
       <Route path="/stars" component={StarPlace} />
-      <Route products={products} path="/boutique" render={(props : any) => {
+      <Route products={products} path="/boutique" render={(props) => {
         return (<Shop {...props} products={products}/>)
       }} />
-      <Route products={products} path="/panier" render={(props : any) => {
+      <Route products={products} path="/panier" render={(props) => {
         return (<Panier {...props} products={products}/>)
       }} />
       <Route path='/contact' component={Contact}/>
