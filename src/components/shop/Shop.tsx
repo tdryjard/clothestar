@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../navbar/Navbar'
 import { Product } from '../product/Product'
+import ReactPixel from 'react-facebook-pixel';
 import url from '../../api/url'
 
 export const Shop = ({products} : any) => {
@@ -8,7 +9,9 @@ export const Shop = ({products} : any) => {
     const [describe] = useState<any>(`Retrouvez les tenues de vos stars préférée aux meilleurs prix`)
 
 
-    
+    useEffect(() => {
+        ReactPixel.pageView(); // For tracking page view
+    }, [])
 
     return (
         <div className="container">

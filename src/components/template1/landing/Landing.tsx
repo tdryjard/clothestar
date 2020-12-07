@@ -5,6 +5,7 @@ import url from '../../../api/url'
 import Chatbot from '../../sortouch/chatbotArea/ChatBotArea'
 import {Dress} from '../../dress/Dress'
 import {Footer} from '../../footer/Footer'
+import ReactPixel from 'react-facebook-pixel';
 import './Landing.scss'
 
 export const Landing = ({products} : any) => {
@@ -26,6 +27,7 @@ export const Landing = ({products} : any) => {
         getDress()
         getStars()
         }
+        ReactPixel.pageView(); // For tracking page view
     }, [products])
 
     const getDress = async () => {

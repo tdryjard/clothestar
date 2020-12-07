@@ -26,10 +26,10 @@ export function App() {
   useEffect(() => {
     GetProducts()
     initializeReactGA()
-  }, [])
   
-  ReactPixel.init('415291002935659', advancedMatching, options);
-ReactPixel.pageView(); // For tracking page view
+    ReactPixel.init('415291002935659', advancedMatching, options);
+  ReactPixel.pageView(); // For tracking page view
+  }, [])
   
   const GetProducts = async () => {
     const res = await fetch(`${url}/product/find`)

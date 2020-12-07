@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../navbar/Navbar'
 import { Star } from '../star/Star'
+import ReactPixel from 'react-facebook-pixel';
 import url from '../../api/url'
 
 export const StarPlace = () => {
@@ -9,6 +10,7 @@ export const StarPlace = () => {
 
     useEffect(() => {
         getStars()
+        ReactPixel.pageView(); // For tracking page view
     }, [])
 
     const getStars = async () => {

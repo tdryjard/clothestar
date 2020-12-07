@@ -4,6 +4,7 @@ import {PlusOutlined, MinusOutlined} from '@ant-design/icons'
 import {Buy} from '../buy/Buy'
 import {Navbar} from '../navbar/Navbar'
 import url from '../../api/url'
+import ReactPixel from 'react-facebook-pixel';
 import './Panier.scss'
 
 
@@ -39,6 +40,7 @@ export const Panier = ({products} : any) => {
     }
         setPanier(newPanier)
     }
+    ReactPixel.pageView(); // For tracking page view
     }, [products])
 
     useEffect(() => {
